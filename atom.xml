@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-19T12:07:43.000Z</updated>
+  <updated>2021-10-19T12:10:09.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,14 @@
     <link href="http://example.com/2021/10/19/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95001-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
     <id>http://example.com/2021/10/19/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95001-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</id>
     <published>2021-10-19T11:55:03.000Z</published>
-    <updated>2021-10-19T12:07:43.000Z</updated>
+    <updated>2021-10-19T12:10:09.000Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>牛客网上华为机试的界面什么都没有，直接给个题目和输入输出描述，一开始不知道怎么下手，所以在掘金上搜了相关文章，总算是知道怎么做题了。</code></pre><hr>]]></content>
+    <content type="html"><![CDATA[<p>牛客网上华为机试的界面什么都没有，直接给个题目和输入输出描述，一开始不知道怎么下手，所以在掘金上搜了相关文章，总算是知道怎么做题了。</p><hr>]]></content>
     
     
       
       
-    <summary type="html">&lt;pre&gt;&lt;code&gt;牛客网上华为机试的界面什么都没有，直接给个题目和输入输出描述，一开始不知道怎么下手，所以在掘金上搜了相关文章，总算是知道怎么做题了。
-&lt;/code&gt;&lt;/pre&gt;
+    <summary type="html">&lt;p&gt;牛客网上华为机试的界面什么都没有，直接给个题目和输入输出描述，一开始不知道怎么下手，所以在掘金上搜了相关文章，总算是知道怎么做题了。&lt;/p&gt;
 &lt;hr&gt;
 </summary>
       
