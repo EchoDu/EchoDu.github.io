@@ -197,7 +197,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>213 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>211 字</span>
         </span>
     
     
@@ -212,12 +212,10 @@
         <div class="article-content markdown-body">
             <p>牛客网上华为机试的界面什么都没有，直接给个题目和输入输出描述，一开始不知道怎么下手，所以在掘金上搜了相关文章，总算是知道怎么做题了。</p>
 <hr>
-<p>======<br>JavaScript V8输入输出<br>======</p>
-<h3 id="单行输入"><a href="#单行输入" class="headerlink" title="单行输入"></a>单行输入</h3><p>V8引擎用<code>readline()</code>接收输入的每一行，一行的字符串不能超过1024个，否则会报错。</p>
-<h3 id="多行输入"><a href="#多行输入" class="headerlink" title="多行输入"></a>多行输入</h3><p>一个<code>readline()</code>接收一行，有几行输入就要写几个<code>readline()</code>，固定行数输入可以用for循环，不固定行数输入可以用while循环。</p>
-<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>输出用<code>print()</code>或<code>console.log()</code>都可以。</p>
-<p>======<br>JavaScript Node<br>======</p>
-<h3 id="单行输入-1"><a href="#单行输入-1" class="headerlink" title="单行输入"></a>单行输入</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const readline = require(&#x27;readline&#x27;);</span><br><span class="line">const rl = readline.createInterface(&#123;</span><br><span class="line">	input: process.stdin,</span><br><span class="line">	output: process.stdout</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rl.on(&#x27;line&#x27;, function(data)&#123;</span><br><span class="line">	var result = data.split(&#x27; &#x27;); //获取第一行的内容，存为数组</span><br><span class="line">	console.log(result);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-V8输入输出"><a href="#JavaScript-V8输入输出" class="headerlink" title="JavaScript V8输入输出"></a>JavaScript V8输入输出</h3><h4 id="单行输入"><a href="#单行输入" class="headerlink" title="单行输入"></a>单行输入</h4><p>V8引擎用<code>readline()</code>接收输入的每一行，一行的字符串不能超过1024个，否则会报错。</p>
+<h4 id="多行输入"><a href="#多行输入" class="headerlink" title="多行输入"></a>多行输入</h4><p>一个<code>readline()</code>接收一行，有几行输入就要写几个<code>readline()</code>，固定行数输入可以用for循环，不固定行数输入可以用while循环。</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>输出用<code>print()</code>或<code>console.log()</code>都可以。</p>
+<h3 id="JavaScript-Node"><a href="#JavaScript-Node" class="headerlink" title="JavaScript Node"></a>JavaScript Node</h3><h4 id="单行输入-1"><a href="#单行输入-1" class="headerlink" title="单行输入"></a>单行输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const readline = require(&#x27;readline&#x27;);</span><br><span class="line">const rl = readline.createInterface(&#123;</span><br><span class="line">	input: process.stdin,</span><br><span class="line">	output: process.stdout</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rl.on(&#x27;line&#x27;, function(data)&#123;</span><br><span class="line">	var result = data.split(&#x27; &#x27;); //获取第一行的内容，存为数组</span><br><span class="line">	console.log(result);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -341,7 +339,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E8%A1%8C%E8%BE%93%E5%85%A5"><span class="nav-text">单行输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%85%A5"><span class="nav-text">多行输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-text">输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E8%A1%8C%E8%BE%93%E5%85%A5-1"><span class="nav-text">单行输入</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-V8%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text">JavaScript V8输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E8%A1%8C%E8%BE%93%E5%85%A5"><span class="nav-text">单行输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%85%A5"><span class="nav-text">多行输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-Node"><span class="nav-text">JavaScript Node</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E8%A1%8C%E8%BE%93%E5%85%A5-1"><span class="nav-text">单行输入</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
