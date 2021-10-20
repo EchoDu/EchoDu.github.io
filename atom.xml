@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-20T08:12:07.000Z</updated>
+  <updated>2021-10-20T13:55:42.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ3</title>
+    <link href="http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ3/"/>
+    <id>http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ3/</id>
+    <published>2021-10-20T10:53:21.000Z</published>
+    <updated>2021-10-20T13:55:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="明明的随机数"><a href="#明明的随机数" class="headerlink" title="明明的随机数"></a>明明的随机数</h3><p>N个1到1000之间的随机整数（N ≤ 1000），去掉重复的数字，然后从小到大排序。</p><p>输入：多行数据，每行一个随机整数，例：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure><p>第一行的3表示N=3，生成了三个随机数即2，2，1</p><p>输出：多行数据，去重后从小到大每行一个数字</p><hr><p>思路：JavaScript排列很简单，数组有专门用于排列的<code>sort()</code>函数，重点在去重，JavaScript的去重也是面试的高频题目，所以看了一些网上的总结，自己都敲了一遍。</p><hr><h4 id="1-用ES6的新数据结构Set"><a href="#1-用ES6的新数据结构Set" class="headerlink" title="1.用ES6的新数据结构Set"></a>1.用ES6的新数据结构Set</h4><p>Set类似于数组，但是成员的值不允许重复，可以用<code>new Set()</code>生成一个Set数据结构。</p><p>可以接收一个数组作参数生成Set数据结构<code>new Set(array)</code>，然后用<code>...</code>三点运算符把Set转换成数组，就能将数组去重了（数组换成字符串也可以用）。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function distinct(arr)&#123;</span><br><span class="line">return [...new Set(arr)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function distinct(arr)&#123;</span><br><span class="line">return Array.from(new Set(arr));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;明明的随机数&quot;&gt;&lt;a href=&quot;#明明的随机数&quot; class=&quot;headerlink&quot; title=&quot;明明的随机数&quot;&gt;&lt;/a&gt;明明的随机数&lt;/h3&gt;&lt;p&gt;N个1到1000之间的随机整数（N ≤ 1000），去掉重复的数字，然后从小到大排序。&lt;/p&gt;
+&lt;p&gt;输入：</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ2</title>
