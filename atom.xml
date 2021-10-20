@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-20T07:35:42.000Z</updated>
+  <updated>2021-10-20T08:12:07.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ2</title>
+    <link href="http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/"/>
+    <id>http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/</id>
+    <published>2021-10-20T07:42:18.000Z</published>
+    <updated>2021-10-20T08:12:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="计算字符个数"><a href="#计算字符个数" class="headerlink" title="计算字符个数"></a>计算字符个数</h3><p>一个程序，接受一个字符串（字母、数字和空格组成）和一个字母，输出字符串中该字母出现的次数，不区分大小写，长度小于500。</p><p>输入：第一行输入一个字符串，第二行输入一个字母</p><p>输出：字符串中含有该字母的个数</p><hr><p>思路1：直接循环一遍字符串，字符串中有该字母就加1。因为不区分大小写，所以先把字符串和字母都变成大写或小写。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var str = readline().toLowerCase();</span><br><span class="line">var letter = readline().toLowerCase();</span><br><span class="line">function computeCount(str, letter)&#123;</span><br><span class="line">    var len = str.length;</span><br><span class="line">    var count = 0;</span><br><span class="line">    for(let i = 0; i &lt; len; i++)&#123;</span><br><span class="line">        if(str[i] === letter)&#123;</span><br><span class="line">            count += 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br><span class="line">console.log(computeCount(str, letter));</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过37.75%用JavaScript_V8提交的代码），占用内存5044KB（超过66.35%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;计算字符个数&quot;&gt;&lt;a href=&quot;#计算字符个数&quot; class=&quot;headerlink&quot; title=&quot;计算字符个数&quot;&gt;&lt;/a&gt;计算字符个数&lt;/h3&gt;&lt;p&gt;一个程序，接受一个字符串（字母、数字和空格组成）和一个字母，输出字符串中该字母出现的次数，不区分大小写，长度</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ1</title>
