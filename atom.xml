@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-19T14:02:04.000Z</updated>
+  <updated>2021-10-20T07:35:42.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ1</title>
+    <link href="http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/"/>
+    <id>http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/</id>
+    <published>2021-10-20T06:24:32.000Z</published>
+    <updated>2021-10-20T07:35:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="字符串最后一个单词的长度"><a href="#字符串最后一个单词的长度" class="headerlink" title="字符串最后一个单词的长度"></a>字符串最后一个单词的长度</h3><p>计算字符串最后一个单词的长度，单词以空格隔开，字符串长度小于5000（字符串末尾不以空格为结尾）</p><p>输入：一行字符串，非空，长度小于5000</p><p>输出：一个整数，表示输入字符串最后一个单词的长度</p><hr><p>思路1：把字符串的每个单词转成数组的一个成员，再看最后一个成员的length。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var str = readline();</span><br><span class="line">function checkLen(str)&#123;</span><br><span class="line">var arr = str.split(&#x27; &#x27;);</span><br><span class="line">var arrLen = arr.length;</span><br><span class="line">return arr[arrLen - 1].length;</span><br><span class="line">&#125;</span><br><span class="line">console.log(checkLen(str));</span><br></pre></td></tr></table></figure><p>通过：运行时间12ms（超过47.20%用JavaScript_V8提交的代码），占用内存5128KB（超过22.23%用JavaScript_V8提交的代码）</p><hr><p>思路2：字符串也有length，从最后一个字母开始累加，直到遇到空格就停止，得到最后一个字符串的长度。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var str = readline();</span><br><span class="line">var len = str.length; //得到字符串长度</span><br><span class="line">var wordLen = 0; //最后一个单词的长度从0开始</span><br><span class="line">for(let i = len-1; i &gt;= 0; i--)&#123;</span><br><span class="line">    if(str[i] !== &#x27; &#x27;)&#123;</span><br><span class="line">        wordLen += 1; //从最后一个字母开始，不为空格就加1</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        break; //遇到空格，最后一个单词已结束</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(wordLen);</span><br></pre></td></tr></table></figure><p>通过：运行时间11ms（超过58.78%用JavaScript_V8提交的代码），占用内存5084KB（超过50.26%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;字符串最后一个单词的长度&quot;&gt;&lt;a href=&quot;#字符串最后一个单词的长度&quot; class=&quot;headerlink&quot; title=&quot;字符串最后一个单词的长度&quot;&gt;&lt;/a&gt;字符串最后一个单词的长度&lt;/h3&gt;&lt;p&gt;计算字符串最后一个单词的长度，单词以空格隔开，字符串长度小于</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试001_输入输出</title>
