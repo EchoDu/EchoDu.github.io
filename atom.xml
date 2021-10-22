@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-22T07:13:27.000Z</updated>
+  <updated>2021-10-22T10:49:45.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>华为机试HJ8</title>
+    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ8/"/>
+    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ8/</id>
+    <published>2021-10-22T07:18:36.000Z</published>
+    <updated>2021-10-22T10:49:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="合并表记录"><a href="#合并表记录" class="headerlink" title="合并表记录"></a>合并表记录</h3><p>数据表记录包含表索引和数值（正整数），将相同索引的数值进行求和，然后按key值升序进行输出。</p><p>输入：键值对个数，然后是成对的键值对</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0 1</span><br><span class="line">0 2</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0 3</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure><hr><p>思路：接收输入到数组arr中，得到arr为[‘4’,’0 1’,’0 2’,’1 2’,’3 4’]；<br>然后根据arr[0]将后面几个输入按键、值的分类分别放入keyArr[0,0,1,3]，valueArr[1,2,2,4]；<br>比较keyArr每个元素（索引值i）与后面的元素（索引值j），若相等让valueArr[i] = valueArr[i] + valueArr[j]，然后删除keyArr[j]；<br>把keyArr和valueArr的值按索引顺序配对，放入一个对象obj中；<br>把obj的键数组按大小排序，然后按排序后的顺序逐个输出键对应的值。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">var line;</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125; //得到输入arr[&#x27;4&#x27;,&#x27;0 1&#x27;,&#x27;0 2&#x27;,&#x27;1 2&#x27;,&#x27;3 4&#x27;]</span><br><span class="line">var count = parseInt(arr[0]);</span><br><span class="line">var keyArr = [];</span><br><span class="line">var valueArr = [];</span><br><span class="line">for(let i=1;i&lt;=count;i++)&#123;</span><br><span class="line">//把键值对如&#x27;0 1&#x27;按空格分隔生成数组[&#x27;0&#x27;,&#x27;1&#x27;]，转成数字0、1存入相应数组</span><br><span class="line">    keyArr.push(parseInt(arr[i].split(&#x27; &#x27;)[0]));</span><br><span class="line">    valueArr.push(parseInt(arr[i].split(&#x27; &#x27;)[1]));</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;keyArr.length;i++)&#123;</span><br><span class="line">    for(let j=i+1;j&lt;keyArr.length;j++)&#123;</span><br><span class="line">        if(keyArr[i] === keyArr[j])&#123;</span><br><span class="line">            valueArr[i] = valueArr[i] + valueArr[j];</span><br><span class="line">            keyArr.splice(j,1);</span><br><span class="line">            valueArr.splice(j,1);</span><br><span class="line">            j--</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">for(let i=0;i&lt;keyArr.length;i++)&#123;</span><br><span class="line">    obj[keyArr[i]] = valueArr[i];</span><br><span class="line">&#125;</span><br><span class="line">var sortedKey = Object.keys(obj).sort((a,b)=&gt;&#123;return parseInt(a)-parseInt(b);&#125;);</span><br><span class="line">for(let i=0;i&lt;sortedKey.length;i++)&#123;</span><br><span class="line">    console.log(sortedKey[i] + &#x27; &#x27; + obj[sortedKey[i]]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间10ms（超过78.42%用JavaScript_V8提交的代码），占用内存5424KB（超过21.69%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;合并表记录&quot;&gt;&lt;a href=&quot;#合并表记录&quot; class=&quot;headerlink&quot; title=&quot;合并表记录&quot;&gt;&lt;/a&gt;合并表记录&lt;/h3&gt;&lt;p&gt;数据表记录包含表索引和数值（正整数），将相同索引的数值进行求和，然后按key值升序进行输出。&lt;/p&gt;
+&lt;p&gt;输入：键</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>华为机试HJ7</title>
     <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ7/"/>
     <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ7/</id>
     <published>2021-10-22T03:51:04.000Z</published>
-    <updated>2021-10-22T07:13:27.000Z</updated>
+    <updated>2021-10-22T07:17:23.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="取近似值"><a href="#取近似值" class="headerlink" title="取近似值"></a>取近似值</h3><p>一个程序，接受一个正浮点数值，输出该数值的近似整数值，遵循四舍五入。</p><p>输入：正浮点数值，例：5.5</p><p>输出：近似整数值，6</p><hr><p>思路：JavaScript有好几个转换数字的函数：</p><p>全局函数<code>parseFloat</code>解析参数返回其浮点数；全局函数<code>parseInt</code>解析一个字符串，返回指定基数的十进制整数；<code>Number.prototype.toFixed</code>用定点表示法格式化一个数值；<code>Math.round</code>返回一个数字四舍五入后最接近的整数；<code>Math.floor</code>向下取整；<code>Math.ceil</code>向上取整。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.round(parseFloat(readline())));</span><br></pre></td></tr></table></figure><p>通过：运行时间12ms（超过43.52%用JavaScript_V8提交的代码），占用内存5080KB（超过47.49%用JavaScript_V8提交的代码）</p>]]></content>
     
