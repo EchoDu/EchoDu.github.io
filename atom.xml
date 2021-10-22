@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-22T03:47:52.000Z</updated>
+  <updated>2021-10-22T07:09:13.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ7</title>
+    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ7/"/>
+    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ7/</id>
+    <published>2021-10-22T03:51:04.000Z</published>
+    <updated>2021-10-22T07:09:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="取近似值"><a href="#取近似值" class="headerlink" title="取近似值"></a>取近似值</h3><p>一个程序，接受一个正浮点数值，输出该数值的近似整数值，遵循四舍五入。</p><p>输入：正浮点数值，例：5.5</p><p>输出：近似整数值，6</p><hr><p>思路：JavaScript有好几个转换数字的函数：</p><p>全局函数<code>parseFloat</code>解析参数返回其浮点数；全局函数<code>parseInt</code>解析一个字符串，返回指定基数的十进制整数；<br><code>Number.prototype.toFixed</code>用定点表示法格式化一个数值；<code>Math.round</code>返回一个数字四舍五入后最接近的整数；<br><code>Math.floor</code>向下取整；<code>Math.ceil</code>向上取整。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Math.round(parseFloat(readline())));</span><br></pre></td></tr></table></figure><p>通过：运行时间12ms（超过43.52%用JavaScript_V8提交的代码），占用内存5080KB（超过47.49%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;取近似值&quot;&gt;&lt;a href=&quot;#取近似值&quot; class=&quot;headerlink&quot; title=&quot;取近似值&quot;&gt;&lt;/a&gt;取近似值&lt;/h3&gt;&lt;p&gt;一个程序，接受一个正浮点数值，输出该数值的近似整数值，遵循四舍五入。&lt;/p&gt;
+&lt;p&gt;输入：正浮点数值，例：5.5&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ6</title>
