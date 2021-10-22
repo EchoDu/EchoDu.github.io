@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-22T10:49:45.000Z</updated>
+  <updated>2021-10-22T11:38:13.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ9</title>
+    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ9/"/>
+    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ9/</id>
+    <published>2021-10-22T10:56:54.000Z</published>
+    <updated>2021-10-22T11:38:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="提取不重复的整数"><a href="#提取不重复的整数" class="headerlink" title="提取不重复的整数"></a>提取不重复的整数</h3><p>输入一个int型整数，按从右到左的阅读顺序，返回一个不含重复数字的新的整数（保证输入的整数最后一位不是0）</p><p>输入：例：9876673</p><p>输出：37689</p><hr><p>思路：输入readline()得到的都是字符串，用字符串方法<code>split(&#39;&#39;)</code>得到数组[‘9’,’8’,’7’,’6’,’6’,’7’,’3’];<br>用数组方法<code>reverse</code>颠倒顺序，得到数组[‘3’,’7’,’6’,’6’,’7’,’8’,’9’]；<br>用<code>parseInt</code>把数组元素都转换成数字，然后用去重。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var inPut = readline();</span><br><span class="line">function abstractNum(inPut)&#123;</span><br><span class="line">    var arr = inPut.split(&#x27;&#x27;).reverse();</span><br><span class="line">    for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        arr[i] = parseInt(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    arr = [...new Set(arr)];</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br><span class="line">var arr = abstractNum(inPut);</span><br><span class="line">console.log(arr.join(&#x27;,&#x27;).replace(/,/g, &#x27;&#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间11ms（超过67.14%用JavaScript_V8提交的代码），占用内存5184KB（超过41.66%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;提取不重复的整数&quot;&gt;&lt;a href=&quot;#提取不重复的整数&quot; class=&quot;headerlink&quot; title=&quot;提取不重复的整数&quot;&gt;&lt;/a&gt;提取不重复的整数&lt;/h3&gt;&lt;p&gt;输入一个int型整数，按从右到左的阅读顺序，返回一个不含重复数字的新的整数（保证输入的整数最</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ8</title>

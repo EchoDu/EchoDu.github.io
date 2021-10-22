@@ -9,7 +9,7 @@
     
     <title>
         
-            分类 |
+            华为机试HJ9 |
         
         我的博客
     </title>
@@ -76,7 +76,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 分类
@@ -123,7 +123,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories">分类</a>
                 </li>
             
@@ -148,13 +148,104 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-list-container">
-        <div class="category-list-content">
-            <ul class="all-category-list"><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/">标记语言</a><span class="all-category-list-count">1</span></li><li class="all-category-list-item"><a class="all-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/">面试刷题</a><span class="all-category-list-count">10</span></li></ul>
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">华为机试HJ9</span>
         </div>
-        <div class="category-comments">
-            
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/self.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Du</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-10-22 18:56:54
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/">面试刷题</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/">华为机试</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>219 字</span>
+        </span>
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="提取不重复的整数"><a href="#提取不重复的整数" class="headerlink" title="提取不重复的整数"></a>提取不重复的整数</h3><p>输入一个int型整数，按从右到左的阅读顺序，返回一个不含重复数字的新的整数（保证输入的整数最后一位不是0）</p>
+<p>输入：例：9876673</p>
+<p>输出：37689</p>
+<hr>
+<p>思路：输入readline()得到的都是字符串，用字符串方法<code>split(&#39;&#39;)</code>得到数组[‘9’,’8’,’7’,’6’,’6’,’7’,’3’];<br>用数组方法<code>reverse</code>颠倒顺序，得到数组[‘3’,’7’,’6’,’6’,’7’,’8’,’9’]；<br>用<code>parseInt</code>把数组元素都转换成数字，然后用去重。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var inPut = readline();</span><br><span class="line">function abstractNum(inPut)&#123;</span><br><span class="line">    var arr = inPut.split(&#x27;&#x27;).reverse();</span><br><span class="line">    for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        arr[i] = parseInt(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    arr = [...new Set(arr)];</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br><span class="line">var arr = abstractNum(inPut);</span><br><span class="line">console.log(arr.join(&#x27;,&#x27;).replace(/,/g, &#x27;&#x27;));</span><br></pre></td></tr></table></figure>
+
+<p>通过：运行时间11ms（超过67.14%用JavaScript_V8提交的代码），占用内存5184KB（超过41.66%用JavaScript_V8提交的代码）</p>
+
         </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">华为机试HJ8</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -185,6 +276,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -230,6 +338,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B4%E6%95%B0"><span class="nav-text">提取不重复的整数</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -295,6 +411,14 @@
 
 
 <div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
