@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-23T08:29:58.000Z</updated>
+  <updated>2021-10-23T10:31:59.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ21</title>
+    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ21/"/>
+    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ21/</id>
+    <published>2021-10-23T08:31:49.000Z</published>
+    <updated>2021-10-23T10:31:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简单密码破解"><a href="#简单密码破解" class="headerlink" title="简单密码破解"></a>简单密码破解</h3><p>把明文密码翻译成真正的密码。</p><p>输入：明文密码，长度不超过100个字符</p><p>输出：真正的密码</p><hr><p>思路：小写字母转成手机上对应的数字；大写字母转小写，然后后移一位（后移方法：先用<code>charCodeAt</code>查当前小写字母的UTF-16代码单元，+1，再用<code>fromCharCode</code>将代码单元转成对应字母）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">function crack(str)&#123;</span><br><span class="line">    var newStr = [...str];</span><br><span class="line">    for(let i=0;i&lt;str.length;i++)&#123;</span><br><span class="line">        var cur = str[i];</span><br><span class="line">        if(/[a-z]/.test(cur))&#123;</span><br><span class="line">            if(/[abc]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 2;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[def]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 3;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[ghi]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 4;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[jkl]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 5;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[mno]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 6;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[pqrs]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 7;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[tuv]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 8;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[wxyz]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 9;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(/[A-Z]/.test(cur))&#123;</span><br><span class="line">            if(cur === &#x27;Z&#x27;)&#123;</span><br><span class="line">                newStr[i] = &#x27;a&#x27;; //注意Z要换成A，否则就变成&#123;了</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                newStr[i] = String.fromCharCode(cur.toLowerCase().charCodeAt(0)+1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return newStr;</span><br><span class="line">&#125;</span><br><span class="line">var result = crack(line);</span><br><span class="line">console.log(result.join(&#x27;&#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过28.82%用JavaScript_V8提交的代码），占用内存5340KB（超过14.21%用JavaScript_V8提交的代码</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简单密码破解&quot;&gt;&lt;a href=&quot;#简单密码破解&quot; class=&quot;headerlink&quot; title=&quot;简单密码破解&quot;&gt;&lt;/a&gt;简单密码破解&lt;/h3&gt;&lt;p&gt;把明文密码翻译成真正的密码。&lt;/p&gt;
+&lt;p&gt;输入：明文密码，长度不超过100个字符&lt;/p&gt;
+&lt;p&gt;输出：真正</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ20</title>
@@ -487,33 +513,6 @@
     
     
     <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown学习记录</title>
-    <link href="http://example.com/2021/10/19/Markdown%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-    <id>http://example.com/2021/10/19/Markdown%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
-    <published>2021-10-19T08:50:37.000Z</published>
-    <updated>2021-10-19T12:12:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Markdown是一种轻量级标记语言，允许人们使用易读易写的纯文本格式编写文档。</p><p>Markdown编写的文档后缀为.md或.markdown</p><hr><h1 id="使用-的一级标题"><a href="#使用-的一级标题" class="headerlink" title="使用=的一级标题"></a>使用=的一级标题</h1><h2 id="使用-的二级标题"><a href="#使用-的二级标题" class="headerlink" title="使用-的二级标题"></a>使用-的二级标题</h2><h1 id="使用-的一级标题（总共六级）"><a href="#使用-的一级标题（总共六级）" class="headerlink" title="使用#的一级标题（总共六级）"></a>使用#的一级标题（总共六级）</h1><p>换行：两个以上空格+回车，或者一个空行</p><p><em>用”*“斜体文本</em></p><p><em>用”_“斜体文本</em></p><p><strong>用”**“粗体文本</strong></p><p><strong>用”__“粗体文本</strong></p><p><em><strong>用”___“粗斜体文本</strong></em></p><p>分隔线：</p><p>***</p><hr><p>* * *</p><hr><p>- - -</p><hr><h2 id=""><a href="#" class="headerlink" title="-------"></a>-------</h2><p><del>删除线”~~“</del></p><p><u>下划线用HTML标签u实现</u></p><p>[^脚注用[^文字]实现]</p><p>无序列表用*或+或-：</p><ul><li>第一项</li><li>第二项</li><li>第三项</li></ul><p>有序列表用数字加.：</p><p>1.第一项<br>2.第二项<br>3.第三项</p><p>区块引用”&gt;”：</p><blockquote><p>这句话是引用自……</p></blockquote><p>代码：</p><p>一个函数或片段用反引号包起来：<code>console.log()</code> 函数</p><p>三个反引号包裹一段代码并可以指定语言：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;Hello World&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>链接：中括号链接名称，小括号链接地址，或者尖括号链接地址</p><p><a class="link"   href="https://www.baidu.com/" >百度地址<i class="fas fa-external-link-alt"></i></a></p><p><a class="link"   href="https://www.baidu.com/" >https://www.baidu.com<i class="fas fa-external-link-alt"></i></a></p><p>图片：![alt 属性文本](图片地址 ”可选标题“)</p><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="头像 图片"></p><p>表格：用|分隔单元格，用-分隔表头和其他行</p><table><thead><tr><th align="center">表头</th><th align="center">表头</th></tr></thead><tbody><tr><td align="center">单元格</td><td align="center">单元格</td></tr><tr><td align="center">单元格</td><td align="center">单元格</td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Markdown是一种轻量级标记语言，允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
-&lt;p&gt;Markdown编写的文档后缀为.md或.markdown&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;使用-的一级标题&quot;&gt;&lt;a href=&quot;#使用-的一级标题&quot; class=&quot;heade</summary>
-      
-    
-    
-    
-    <category term="标记语言" scheme="http://example.com/categories/%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="Markdown" scheme="http://example.com/tags/Markdown/"/>
     
   </entry>
   
