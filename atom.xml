@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-23T11:15:07.000Z</updated>
+  <updated>2021-10-23T13:56:08.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ23</title>
+    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ23/"/>
+    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ23/</id>
+    <published>2021-10-23T11:18:43.000Z</published>
+    <updated>2021-10-23T13:56:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="删除字符串中出现次数最少的字符"><a href="#删除字符串中出现次数最少的字符" class="headerlink" title="删除字符串中出现次数最少的字符"></a>删除字符串中出现次数最少的字符</h3><p>删除字符串中出现次数最少的字符，如果多个字符出现次数一样则都删除。</p><p>输入：字符串，只包含小写英文字母，长度≤20字节</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">abcdd</span><br><span class="line">aabcddd</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd</span><br><span class="line">aaddd</span><br></pre></td></tr></table></figure><hr><p>思路：利用对象的<code>hasOwnPropery</code>方法，把字母当作对象的键，有新的键就加入对象，已经有的键就把对应的值加1；<br>用<code>Object.values()</code>得到值（即字母出现次数）的数组，数组从小到大排序；<br>把键对应的值===排序数组第一个数值的键统一放入一个数组，这个数组里就是要删除的字母的类型。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function countStr(str)&#123;</span><br><span class="line">    var obj = &#123;&#125;;</span><br><span class="line">    var countArr;</span><br><span class="line">    var deleArr = [];</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    var strArr = str.split(&#x27;&#x27;);</span><br><span class="line">    for(let i in str)&#123;</span><br><span class="line">        if(!obj.hasOwnProperty(str[i]))&#123;</span><br><span class="line">            obj[str[i]] = 1;</span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            obj[str[i]] += 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    countArr = Object.values(obj).sort((a,b)=&gt;&#123;return a-b;&#125;);</span><br><span class="line">    if(countArr.length &gt; 1)&#123;</span><br><span class="line">        for(key in obj)&#123;</span><br><span class="line">            if(obj[key] === countArr[0])&#123;</span><br><span class="line">                deleArr.push(key);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   for(let i=0;i&lt;strArr.length;i++)&#123;</span><br><span class="line">       if(deleArr.indexOf(strArr[i]) === -1)&#123;</span><br><span class="line">          newStr += strArr[i];</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  return newStr;</span><br><span class="line">&#125;</span><br><span class="line">for(i in arr)&#123;</span><br><span class="line">    console.log(countStr(arr[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过42.07%用JavaScript_V8提交的代码），占用内存5388KB（超过14.50%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;删除字符串中出现次数最少的字符&quot;&gt;&lt;a href=&quot;#删除字符串中出现次数最少的字符&quot; class=&quot;headerlink&quot; title=&quot;删除字符串中出现次数最少的字符&quot;&gt;&lt;/a&gt;删除字符串中出现次数最少的字符&lt;/h3&gt;&lt;p&gt;删除字符串中出现次数最少的字符，如果</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ22</title>
@@ -479,30 +503,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;计算字符个数&quot;&gt;&lt;a href=&quot;#计算字符个数&quot; class=&quot;headerlink&quot; title=&quot;计算字符个数&quot;&gt;&lt;/a&gt;计算字符个数&lt;/h3&gt;&lt;p&gt;一个程序，接受一个字符串（字母、数字和空格组成）和一个字母，输出字符串中该字母出现的次数，不区分大小写，长度</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ1</title>
-    <link href="http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/"/>
-    <id>http://example.com/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/</id>
-    <published>2021-10-20T06:24:32.000Z</published>
-    <updated>2021-10-20T07:35:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串最后一个单词的长度"><a href="#字符串最后一个单词的长度" class="headerlink" title="字符串最后一个单词的长度"></a>字符串最后一个单词的长度</h3><p>计算字符串最后一个单词的长度，单词以空格隔开，字符串长度小于5000（字符串末尾不以空格为结尾）</p><p>输入：一行字符串，非空，长度小于5000</p><p>输出：一个整数，表示输入字符串最后一个单词的长度</p><hr><p>思路1：把字符串的每个单词转成数组的一个成员，再看最后一个成员的length。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var str = readline();</span><br><span class="line">function checkLen(str)&#123;</span><br><span class="line">var arr = str.split(&#x27; &#x27;);</span><br><span class="line">var arrLen = arr.length;</span><br><span class="line">return arr[arrLen - 1].length;</span><br><span class="line">&#125;</span><br><span class="line">console.log(checkLen(str));</span><br></pre></td></tr></table></figure><p>通过：运行时间12ms（超过47.20%用JavaScript_V8提交的代码），占用内存5128KB（超过22.23%用JavaScript_V8提交的代码）</p><hr><p>思路2：字符串也有length，从最后一个字母开始累加，直到遇到空格就停止，得到最后一个字符串的长度。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var str = readline();</span><br><span class="line">var len = str.length; //得到字符串长度</span><br><span class="line">var wordLen = 0; //最后一个单词的长度从0开始</span><br><span class="line">for(let i = len-1; i &gt;= 0; i--)&#123;</span><br><span class="line">    if(str[i] !== &#x27; &#x27;)&#123;</span><br><span class="line">        wordLen += 1; //从最后一个字母开始，不为空格就加1</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        break; //遇到空格，最后一个单词已结束</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(wordLen);</span><br></pre></td></tr></table></figure><p>通过：运行时间11ms（超过58.78%用JavaScript_V8提交的代码），占用内存5084KB（超过50.26%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符串最后一个单词的长度&quot;&gt;&lt;a href=&quot;#字符串最后一个单词的长度&quot; class=&quot;headerlink&quot; title=&quot;字符串最后一个单词的长度&quot;&gt;&lt;/a&gt;字符串最后一个单词的长度&lt;/h3&gt;&lt;p&gt;计算字符串最后一个单词的长度，单词以空格隔开，字符串长度小于</summary>
       
     
     
