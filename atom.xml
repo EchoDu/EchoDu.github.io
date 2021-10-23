@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-23T03:45:44.000Z</updated>
+  <updated>2021-10-23T06:51:46.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ17</title>
+    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ17/"/>
+    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ17/</id>
+    <published>2021-10-23T03:47:52.000Z</published>
+    <updated>2021-10-23T06:51:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="坐标移动"><a href="#坐标移动" class="headerlink" title="坐标移动"></a>坐标移动</h3><p>一个坐标计算工具，A：向左移动，D：向右移动，W：向上移动，S：向下移动。从(0,0)点开始移动，从输入字符串读取坐标，输出最终坐标。</p><p>输入：合法坐标：A/D/W/S加上数字（两位以内），坐标之间以;分隔。非法坐标需要丢弃。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">A10;S20;W10;D30;X;A1A;B10A11;;A10;</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10,-10</span><br></pre></td></tr></table></figure><hr><p>思路：把输入用<code>split(&#39;;&#39;)</code>放到数组中，然后用正则表达式<code>test</code>过滤非法坐标，再根据合法坐标计算。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">var operate = line.split(&#x27;;&#x27;);</span><br><span class="line">var reg = /^[A|D|W|S]&#123;1&#125;[1-9][0-9]?$/;</span><br><span class="line">var rightOpe = [];</span><br><span class="line">for(i in operate)&#123;</span><br><span class="line">    if(reg.test(operate[i]))&#123;</span><br><span class="line">        rightOpe.push(operate[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function move(arr)&#123;</span><br><span class="line">    var start = [0,0];</span><br><span class="line">    for(i in arr)&#123;</span><br><span class="line">        switch(arr[i][0])&#123;</span><br><span class="line">            case &#x27;A&#x27;:</span><br><span class="line">                start[0] -= parseInt(arr[i].substring(1));</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;D&#x27;:</span><br><span class="line">                start[0] += parseInt(arr[i].substring(1));</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;S&#x27;:</span><br><span class="line">                start[1] -= parseInt(arr[i].substring(1));</span><br><span class="line">                break;</span><br><span class="line">            case &#x27;W&#x27;:</span><br><span class="line">                start[1] += parseInt(arr[i].substring(1));</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return start;</span><br><span class="line">&#125;</span><br><span class="line">console.log(move(rightOpe));</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过45.67% 用JavaScript_V8提交的代码），占用内存5444KB（超过20.50%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;坐标移动&quot;&gt;&lt;a href=&quot;#坐标移动&quot; class=&quot;headerlink&quot; title=&quot;坐标移动&quot;&gt;&lt;/a&gt;坐标移动&lt;/h3&gt;&lt;p&gt;一个坐标计算工具，A：向左移动，D：向右移动，W：向上移动，S：向下移动。从(0,0)点开始移动，从输入字符串读取坐标，输出</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ16</title>
