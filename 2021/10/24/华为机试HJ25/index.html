@@ -9,7 +9,7 @@
     
     <title>
         
-            华为机试HJ23 |
+            华为机试HJ25 |
         
         我的博客
     </title>
@@ -151,7 +151,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">华为机试HJ23</span>
+            <span class="title-hover-animation">华为机试HJ25</span>
         </div>
 
         
@@ -167,7 +167,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-10-23 19:18:43
+        <i class="fas fa-edit"></i>&nbsp;2021-10-24 10:28:36
     </span>
     
         <span class="article-categories article-meta-item">
@@ -197,7 +197,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>340 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>455 字</span>
         </span>
     
     
@@ -210,17 +210,13 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="删除字符串中出现次数最少的字符"><a href="#删除字符串中出现次数最少的字符" class="headerlink" title="删除字符串中出现次数最少的字符"></a>删除字符串中出现次数最少的字符</h3><p>删除字符串中出现次数最少的字符，如果多个字符出现次数一样则都删除。</p>
-<p>输入：字符串，只包含小写英文字母，长度≤20字节</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">abcdd</span><br><span class="line">aabcddd</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd</span><br><span class="line">aaddd</span><br></pre></td></tr></table></figure>
+            <h3 id="数据分类处理"><a href="#数据分类处理" class="headerlink" title="数据分类处理"></a>数据分类处理</h3><p>采集输入大数据和分类规则，通过大数据分类处理程序，将大数据分类输出。<br>这个题题目累赘，看了挺久才看懂，就是一个输入序列I，一个规则序列R，先把R从小到大排序、去重，然后用每个R[i]去检查I中每一个元素找出I[j]中含有R[i]的</p>
+<p>输入：第一行I，第二行R</p>
+<p>输出：<br>满足条件的I[j]的总数<br>满足条件的第一个R[i]<br>含R[i]的I[j]的个数<br>第一个含R[i]的I[j]的索引j<br>第一个含R[i]的I[j]的值</p>
 <hr>
-<p>思路：利用对象的<code>hasOwnPropery</code>方法，把字母当作对象的键，有新的键就加入对象，已经有的键就把对应的值加1；<br>用<code>Object.values()</code>得到值（即字母出现次数）的数组，数组从小到大排序；<br>把键对应的值===排序数组第一个数值的键统一放入一个数组，这个数组里就是要删除的字母的类型。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function countStr(str)&#123;</span><br><span class="line">    var obj = &#123;&#125;;</span><br><span class="line">    var countArr;</span><br><span class="line">    var deleArr = [];</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    var strArr = str.split(&#x27;&#x27;);</span><br><span class="line">    for(let i in str)&#123;</span><br><span class="line">        if(!obj.hasOwnProperty(str[i]))&#123;</span><br><span class="line">            obj[str[i]] = 1;</span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            obj[str[i]] += 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    countArr = Object.values(obj).sort((a,b)=&gt;&#123;return a-b;&#125;);</span><br><span class="line">    if(countArr.length &gt; 1)&#123;</span><br><span class="line">        for(key in obj)&#123;</span><br><span class="line">            if(obj[key] === countArr[0])&#123;</span><br><span class="line">                deleArr.push(key);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   for(let i=0;i&lt;strArr.length;i++)&#123;</span><br><span class="line">       if(deleArr.indexOf(strArr[i]) === -1)&#123;</span><br><span class="line">          newStr += strArr[i];</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  return newStr;</span><br><span class="line">&#125;</span><br><span class="line">for(i in arr)&#123;</span><br><span class="line">    console.log(countStr(arr[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var lines = [];</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    lines.push(line);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;parseInt(lines.length/2);i++)&#123;</span><br><span class="line">    arr[i] = [lines[i*2], lines[i*2+1]];</span><br><span class="line">&#125;</span><br><span class="line">function strToNum(array)&#123;</span><br><span class="line">    for(let i=0;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] = parseInt(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function numToStr(array)&#123;</span><br><span class="line">    for(let i=0;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] = array[i].toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function dataClassify(arr)&#123;</span><br><span class="line">    for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        var Iarr = arr[i][0].split(&#x27; &#x27;);</span><br><span class="line">        var Rarr = arr[i][1].split(&#x27; &#x27;);</span><br><span class="line">        var countArr = [];</span><br><span class="line">        var Rcount = [];</span><br><span class="line">        var result = [];</span><br><span class="line">        var finalResult = [];</span><br><span class="line">        Iarr.shift();</span><br><span class="line">        Rarr.shift();</span><br><span class="line">        strToNum(Rarr);</span><br><span class="line">        Rarr.sort((a,b)=&gt;&#123;return a-b;&#125;);</span><br><span class="line">        Rarr = [...new Set(Rarr)];</span><br><span class="line">        numToStr(Rarr);</span><br><span class="line">        for(let j=0;j&lt;Rarr.length;j++)&#123;</span><br><span class="line">            var count = 0;</span><br><span class="line">            for(let k=0;k&lt;Iarr.length;k++)&#123;</span><br><span class="line">                if(Iarr[k].includes(Rarr[j]))&#123;</span><br><span class="line">                    ++count;</span><br><span class="line">                    result.push(k);</span><br><span class="line">                    result.push(Iarr[k]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(count &gt; 0)&#123;</span><br><span class="line">                Rcount.push(Rarr[j]);</span><br><span class="line">                countArr.push(count);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var num = 0;</span><br><span class="line">        for(let j=0;j&lt;countArr.length;j++)&#123;</span><br><span class="line">            finalResult.push(Rcount[j]);</span><br><span class="line">            var cur = countArr[j];</span><br><span class="line">            finalResult.push(cur);</span><br><span class="line">            for(let k=num;k&lt;num+cur*2;k++)&#123;</span><br><span class="line">                finalResult.push(result[k]);</span><br><span class="line">            &#125;</span><br><span class="line">            num += cur * 2;</span><br><span class="line">        &#125;</span><br><span class="line">        var len = finalResult.length;</span><br><span class="line">        finalResult.unshift(len);</span><br><span class="line">        console.log(finalResult.join(&#x27; &#x27;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">dataClassify(arr);</span><br></pre></td></tr></table></figure>
 
-<p>通过：运行时间13ms（超过42.07%用JavaScript_V8提交的代码），占用内存5388KB（超过14.50%用JavaScript_V8提交的代码）</p>
+<p>通过：运行时间13ms（超过61.95%用JavaScript_V8提交的代码），占用内存5264KB（超过73.00%用JavaScript_V8提交的代码）</p>
 
         </div>
 
@@ -229,29 +225,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ25/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">华为机试HJ25</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ22/"
+                           href="/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ23/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">华为机试HJ22</span>
+                                <span class="post-nav-title-item">华为机试HJ23</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -360,7 +341,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%B0%91%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="nav-text">删除字符串中出现次数最少的字符</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E7%B1%BB%E5%A4%84%E7%90%86"><span class="nav-text">数据分类处理</span></a></li></ol>
     </div>
 </div>
         </aside>
