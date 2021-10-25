@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-25T12:02:03.000Z</updated>
+  <updated>2021-10-25T14:01:07.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ33</title>
+    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ33/"/>
+    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ33/</id>
+    <published>2021-10-25T12:05:26.000Z</published>
+    <updated>2021-10-25T14:01:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="整数与IP地址间的转换"><a href="#整数与IP地址间的转换" class="headerlink" title="整数与IP地址间的转换"></a>整数与IP地址间的转换</h3><p>IP地址有四段，每段是一个0-255的整数，把每段拆分成一个长度为8的二进制形式，组合起来，然后转换成一个整数。</p><p>输入：<br>IP地址<br>10进制IP地址</p><p>输出：<br>转换成10进制的IP地址<br>转换后的IP地址</p><hr><p>思路：主要就是用<code>numObj.toString(2)</code>可以把Number对象转成二进制字符串（光数字不行，要先用<code>Number()</code>转成Number对象），而用<code>parseInt(str, 2)</code>可以把二进制字符串转成十进制数字。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function toNum(str)&#123;</span><br><span class="line">    var strArr = str.split(&#x27;.&#x27;);</span><br><span class="line">    var result;</span><br><span class="line">    for(let j=0;j&lt;strArr.length;j++)&#123;</span><br><span class="line">        var plus = &#x27;&#x27;;</span><br><span class="line">        strArr[j] = Number(strArr[j]).toString(2);</span><br><span class="line">        if(strArr[j].length &lt; 8)&#123;</span><br><span class="line">            for(let k=1;k&lt;= 8-strArr[j].length;k++)&#123;</span><br><span class="line">                plus += &#x27;0&#x27;;</span><br><span class="line">            &#125;</span><br><span class="line">        strArr[j] = plus + strArr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    result = parseInt(strArr.join(&#x27;&#x27;), 2);</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;</span><br><span class="line">function toIp(str)&#123;</span><br><span class="line">    var long = Number(str).toString(2);</span><br><span class="line">    var plus = &#x27;&#x27;;</span><br><span class="line">    var ipArr = [];</span><br><span class="line">    if(long.length &lt; 32)&#123;</span><br><span class="line">        for(let k=1;k&lt;=32-long.length;k++)&#123;</span><br><span class="line">            plus += &#x27;0&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">        long = plus + long;</span><br><span class="line">    &#125;</span><br><span class="line">    for(let j=0;j&lt;4;j++)&#123;</span><br><span class="line">        ipArr.push(long.substring(j*8,(j+1)*8))</span><br><span class="line">    &#125;</span><br><span class="line">    for(let j=0;j&lt;ipArr.length;j++)&#123;</span><br><span class="line">        ipArr[j] = parseInt(ipArr[j], 2);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(ipArr.join(&#x27;.&#x27;));</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    if(i%2)&#123;</span><br><span class="line">        toIp(arr[i]);</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        toNum(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过35.81%用JavaScript_V8提交的代码），占用内存5276KB（超过20.32%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;整数与IP地址间的转换&quot;&gt;&lt;a href=&quot;#整数与IP地址间的转换&quot; class=&quot;headerlink&quot; title=&quot;整数与IP地址间的转换&quot;&gt;&lt;/a&gt;整数与IP地址间的转换&lt;/h3&gt;&lt;p&gt;IP地址有四段，每段是一个0-255的整数，把每段拆分成一个长度为8</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ32</title>
@@ -474,31 +498,6 @@
     <summary type="html">&lt;h3 id=&quot;数字颠倒&quot;&gt;&lt;a href=&quot;#数字颠倒&quot; class=&quot;headerlink&quot; title=&quot;数字颠倒&quot;&gt;&lt;/a&gt;数字颠倒&lt;/h3&gt;&lt;p&gt;输入一个整数，将它以字符串的形式逆序输出，数字含有0则输出也有0&lt;/p&gt;
 &lt;p&gt;输入：整数，例：1516000&lt;/p&gt;
 &lt;p</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ10</title>
-    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ10/"/>
-    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ10/</id>
-    <published>2021-10-22T11:39:55.000Z</published>
-    <updated>2021-10-22T11:59:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符个数统计"><a href="#字符个数统计" class="headerlink" title="字符个数统计"></a>字符个数统计</h3><p>一个函数，计算字符串中含有的不同字符的个数。字符在ASCII码0~127范围内。</p><p>输入：一行没有空格的字符串，例：abc</p><p>输出：不同字符个数，3</p><hr><p>思路：利用去重中的一种思路，用数组的<code>indexOf</code>方法或<code>includes</code>方法。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr = readline().split(&#x27;&#x27;);</span><br><span class="line">function computeTypes(arr)&#123;</span><br><span class="line">    var count = [];</span><br><span class="line">    for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        var cur = arr[i];</span><br><span class="line">        if(!count.includes(cur))&#123;</span><br><span class="line">            count.push(cur);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return count.length;</span><br><span class="line">&#125;</span><br><span class="line">console.log(computeTypes(arr));</span><br></pre></td></tr></table></figure><p>通过：运行时间8ms（超过93.10%用JavaScript_V8提交的代码），占用内存5040KB（超过77.98%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符个数统计&quot;&gt;&lt;a href=&quot;#字符个数统计&quot; class=&quot;headerlink&quot; title=&quot;字符个数统计&quot;&gt;&lt;/a&gt;字符个数统计&lt;/h3&gt;&lt;p&gt;一个函数，计算字符串中含有的不同字符的个数。字符在ASCII码0~127范围内。&lt;/p&gt;
-&lt;p&gt;输入：一行没</summary>
       
     
     
