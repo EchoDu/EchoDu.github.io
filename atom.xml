@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-24T11:52:52.000Z</updated>
+  <updated>2021-10-25T05:32:23.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ28</title>
+    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ28/"/>
+    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ28/</id>
+    <published>2021-10-25T02:48:56.000Z</published>
+    <updated>2021-10-25T05:32:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="素数伴侣"><a href="#素数伴侣" class="headerlink" title="素数伴侣"></a>素数伴侣</h3><p>定义：两个和为素数的正整数，例如2和5、6和13。从N个（N为偶数）正整数中挑出若干对组成素数伴侣，选出最佳方案即能组成素数伴侣最多的方案。</p><p>输入：<br>N<br>N个正整数</p><p>输出：最佳方案组成素数伴侣的对数</p><hr><p>思路：要先写一个判断是否素数的函数，然后再对N个正整数的和进行判断。<br>技巧：素数不是偶数，所以两个偶数相加或者两个奇数相加得到的偶数都不可能是素数，可以先把数据分为奇数和偶数两类，两个互不相交的集合的最大匹配问题，就可以用匈牙利算法解决。<br>匈牙利算法：大概概念弄懂了，先搁置。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;素数伴侣&quot;&gt;&lt;a href=&quot;#素数伴侣&quot; class=&quot;headerlink&quot; title=&quot;素数伴侣&quot;&gt;&lt;/a&gt;素数伴侣&lt;/h3&gt;&lt;p&gt;定义：两个和为素数的正整数，例如2和5、6和13。从N个（N为偶数）正整数中挑出若干对组成素数伴侣，选出最佳方案即能组成素数</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试 搁置" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95-%E6%90%81%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ27</title>
@@ -478,32 +502,6 @@
       
     <summary type="html">&lt;h3 id=&quot;质数因子&quot;&gt;&lt;a href=&quot;#质数因子&quot; class=&quot;headerlink&quot; title=&quot;质数因子&quot;&gt;&lt;/a&gt;质数因子&lt;/h3&gt;&lt;p&gt;输入一个正整数，按从小到到的顺序输出它所有质因子（重复的也要列举），以空格隔开，最后一个数后面也要有空格。&lt;/p&gt;
 &lt;p&gt;质</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ5</title>
-    <link href="http://example.com/2021/10/21/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ5/"/>
-    <id>http://example.com/2021/10/21/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ5/</id>
-    <published>2021-10-21T13:12:42.000Z</published>
-    <updated>2021-10-21T13:21:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><p>写一个程序，接受一个十六进制数，输出该数的十进制表示</p><p>输入：一个十六进制的数值字符串</p><p>输出：数值的十进制表示</p><hr><p>思路：这个题对JavaScript来说真的很简单，因为有一个专门的<code>parseInt(string, radix)</code>解析一个指定基数的字符串，返回其十进制表示。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">var line;</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(parseInt(arr[i], 16));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过25.67%用JavaScript_V8提交的代码），占用内存5000KB（超过81.94%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;进制转换&quot;&gt;&lt;a href=&quot;#进制转换&quot; class=&quot;headerlink&quot; title=&quot;进制转换&quot;&gt;&lt;/a&gt;进制转换&lt;/h3&gt;&lt;p&gt;写一个程序，接受一个十六进制数，输出该数的十进制表示&lt;/p&gt;
-&lt;p&gt;输入：一个十六进制的数值字符串&lt;/p&gt;
-&lt;p&gt;输出：数值</summary>
       
     
     
