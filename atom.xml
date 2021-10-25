@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-25T14:01:07.000Z</updated>
+  <updated>2021-10-25T15:24:18.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ35</title>
+    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ35/"/>
+    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ35/</id>
+    <published>2021-10-25T14:29:46.000Z</published>
+    <updated>2021-10-25T15:24:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="蛇形矩阵"><a href="#蛇形矩阵" class="headerlink" title="蛇形矩阵"></a>蛇形矩阵</h3><p>思路：找规律:设数字为N，则左上角是1，右上角是最后一个数字，把每行数字的个数加起来就是右上角的数字，即1+2+3+…+N=(N²+N)/2；<br>第二行开始每个数字是上一行斜对角的数字-1。</p><hr><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var numArr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    numArr.push(parseInt(line));</span><br><span class="line">&#125;</span><br><span class="line">function snakeMatrix(num)&#123;</span><br><span class="line">    var mArr = [];</span><br><span class="line">    for(let j=0;j&lt;num;j++)&#123;</span><br><span class="line">        var content = [];</span><br><span class="line">        if(j===0)&#123;</span><br><span class="line">            for(let k=1;k&lt;=num;k++)&#123;</span><br><span class="line">                content.push((k*k+k)/2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            for(let k=0;k&lt;num-j;k++)&#123;</span><br><span class="line">                content.push(mArr[j-1][k+1]-1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        mArr.push(content);</span><br><span class="line">    &#125;</span><br><span class="line">    for(let j=0;j&lt;mArr.length;j++)&#123;</span><br><span class="line">        console.log(mArr[j].join(&#x27; &#x27;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;numArr.length;i++)&#123;</span><br><span class="line">    snakeMatrix(numArr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过51.49%用JavaScript_V8提交的代码），占用内存5632KB（超过81.58%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;蛇形矩阵&quot;&gt;&lt;a href=&quot;#蛇形矩阵&quot; class=&quot;headerlink&quot; title=&quot;蛇形矩阵&quot;&gt;&lt;/a&gt;蛇形矩阵&lt;/h3&gt;&lt;p&gt;思路：找规律:设数字为N，则左上角是1，右上角是最后一个数字，把每行数字的个数加起来就是右上角的数字，即1+2+3+…+N=</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ34</title>
+    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ34/"/>
+    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ34/</id>
+    <published>2021-10-25T14:17:07.000Z</published>
+    <updated>2021-10-25T14:27:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="图片整理"><a href="#图片整理" class="headerlink" title="图片整理"></a>图片整理</h3><p>字符串包括a-z A-Z 0-9，按从小到大排序</p><p>输入：Ihave1nose2hands10fingers</p><p>输出：0112Iaadeeefghhinnnorsssv</p><hr><p>思路：数字排在字母前面，那就可以直接用数组<code>sort()</code>方法（默认就是字典序）ß</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i].split(&#x27;&#x27;).sort().join(&#x27;&#x27;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间18ms（超过22.55%用JavaScript_V8提交的代码），占用内存5328KB（超过50.16%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;图片整理&quot;&gt;&lt;a href=&quot;#图片整理&quot; class=&quot;headerlink&quot; title=&quot;图片整理&quot;&gt;&lt;/a&gt;图片整理&lt;/h3&gt;&lt;p&gt;字符串包括a-z A-Z 0-9，按从小到大排序&lt;/p&gt;
+&lt;p&gt;输入：Ihave1nose2hands10fingers&lt;/</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ33</title>
@@ -446,58 +495,6 @@
       
     <summary type="html">&lt;h3 id=&quot;句子逆序&quot;&gt;&lt;a href=&quot;#句子逆序&quot; class=&quot;headerlink&quot; title=&quot;句子逆序&quot;&gt;&lt;/a&gt;句子逆序&lt;/h3&gt;&lt;p&gt;将一个英语句子以单词为单位逆序排放。单词之间用一个空格隔开，句子中除了英文字母外不包含其他字符。&lt;/p&gt;
 &lt;p&gt;输入：I a</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ12</title>
-    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/"/>
-    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ12/</id>
-    <published>2021-10-22T12:15:30.000Z</published>
-    <updated>2021-10-22T12:58:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串反转"><a href="#字符串反转" class="headerlink" title="字符串反转"></a>字符串反转</h3><p>接受一个只含小写字母的字符串，输出反转后的字符串</p><p>输入：abcd</p><p>输出：dcba</p><hr><p>思路：还是利用数组的<code>reverse</code>方法，先用字符串的<code>split</code>方法把字符串每个字母放到一个数组中。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = readline();</span><br><span class="line">console.log(str.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间11ms（超过64.72% 用JavaScript_V8提交的代码），占用内存5312KB（超过16.18%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符串反转&quot;&gt;&lt;a href=&quot;#字符串反转&quot; class=&quot;headerlink&quot; title=&quot;字符串反转&quot;&gt;&lt;/a&gt;字符串反转&lt;/h3&gt;&lt;p&gt;接受一个只含小写字母的字符串，输出反转后的字符串&lt;/p&gt;
-&lt;p&gt;输入：abcd&lt;/p&gt;
-&lt;p&gt;输出：dcba&lt;/p&gt;</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ11</title>
-    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ11/"/>
-    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ11/</id>
-    <published>2021-10-22T12:02:57.000Z</published>
-    <updated>2021-10-22T12:12:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="数字颠倒"><a href="#数字颠倒" class="headerlink" title="数字颠倒"></a>数字颠倒</h3><p>输入一个整数，将它以字符串的形式逆序输出，数字含有0则输出也有0</p><p>输入：整数，例：1516000</p><p>输出：0006151</p><hr><p>思路：JavaScript数组有专门的<code>reverse</code>方法</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function reverseNum(str)&#123;</span><br><span class="line">    str = str.split(&#x27;&#x27;).reverse();</span><br><span class="line">    console.log(str.join(&#x27;,&#x27;).replace(/,/g, &#x27;&#x27;));</span><br><span class="line">&#125;</span><br><span class="line">var line;</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    reverseNum(line);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过40.46% 用JavaScript_V8提交的代码），占用内存5228KB（超过22.27%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;数字颠倒&quot;&gt;&lt;a href=&quot;#数字颠倒&quot; class=&quot;headerlink&quot; title=&quot;数字颠倒&quot;&gt;&lt;/a&gt;数字颠倒&lt;/h3&gt;&lt;p&gt;输入一个整数，将它以字符串的形式逆序输出，数字含有0则输出也有0&lt;/p&gt;
-&lt;p&gt;输入：整数，例：1516000&lt;/p&gt;
-&lt;p</summary>
       
     
     
