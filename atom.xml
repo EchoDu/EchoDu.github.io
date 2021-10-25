@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-25T05:32:23.000Z</updated>
+  <updated>2021-10-25T06:57:11.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ29</title>
+    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ29/"/>
+    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ29/</id>
+    <published>2021-10-25T05:35:51.000Z</published>
+    <updated>2021-10-25T06:57:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="字符串加解密"><a href="#字符串加解密" class="headerlink" title="字符串加解密"></a>字符串加解密</h3><p>对输入的字符串进行加解密，并输出。<br>加密方法：英文字母：用后一个字母替换并变换大小写；数字：加1（9变0）；其他字符不做变化。<br>解密方法：加密方法的逆过程，即：英文字母：变换大小写，用前一个字母替换；数字：减1（0变9）。</p><p>输入：<br>一串要加密的密码<br>一串要解密的密码</p><p>输出：<br>加密后的密码<br>解密后的密码</p><hr><p>思路：用正则分别检查是否是小写字母、大写字母和数字，变成前后字母可以先用<code>charCodeAt(0)</code>查当前字母编码，然后-1或+1，再用<code>String.fromCharCode()</code>转成前一个或后一个字母，再变大小写，用<code>toLowerCase()</code>或<code>toUpperCase</code>。<br>注意：加密要对’z’、’Z’和9特别检查，解密要对’a’、’A’和0特别检查。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function encryp(str)&#123;</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    for(let j=0;j&lt;str.length;++j)&#123;</span><br><span class="line">        if(/[a-z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;z&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;A&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) + 1).toUpperCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[A-Z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;Z&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;a&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) + 1).toLowerCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[0-9]/.test(str[j]))&#123;</span><br><span class="line">            if(parseInt(str[j]) === 9)&#123;</span><br><span class="line">                newStr += 0;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += (parseInt(str[j]) + 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            newStr += str[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newStr);</span><br><span class="line">&#125;</span><br><span class="line">function decryp(str)&#123;</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    for(let j=0;j&lt;str.length;j++)&#123;</span><br><span class="line">        if(/[a-z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;a&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;Z&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) - 1).toUpperCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[A-Z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;A&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;z&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) - 1).toLowerCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[0-9]/.test(str[j]))&#123;</span><br><span class="line">            if(parseInt(str[j]) === 0)&#123;</span><br><span class="line">                newStr += 9;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += (parseInt(str[j]) - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            newStr += str[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newStr);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;++i)&#123;</span><br><span class="line">    if(i%2)&#123;</span><br><span class="line">        decryp(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        encryp(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过40.21%用JavaScript_V8提交的代码），占用内存5216KB（超过35.14%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;字符串加解密&quot;&gt;&lt;a href=&quot;#字符串加解密&quot; class=&quot;headerlink&quot; title=&quot;字符串加解密&quot;&gt;&lt;/a&gt;字符串加解密&lt;/h3&gt;&lt;p&gt;对输入的字符串进行加解密，并输出。&lt;br&gt;加密方法：英文字母：用后一个字母替换并变换大小写；数字：加1（9变</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ28</title>
@@ -241,7 +265,7 @@
     <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ16/"/>
     <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ16/</id>
     <published>2021-10-23T02:30:20.000Z</published>
-    <updated>2021-10-23T03:45:44.000Z</updated>
+    <updated>2021-10-25T05:35:28.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="购物单"><a href="#购物单" class="headerlink" title="购物单"></a>购物单</h3><p>动态规划，知识盲点，先放着o(╥﹏╥)o</p>]]></content>
     
@@ -257,7 +281,7 @@
     <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
     
     
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    <category term="华为机试 搁置" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95-%E6%90%81%E7%BD%AE/"/>
     
   </entry>
   
@@ -477,31 +501,6 @@
     <summary type="html">&lt;h3 id=&quot;取近似值&quot;&gt;&lt;a href=&quot;#取近似值&quot; class=&quot;headerlink&quot; title=&quot;取近似值&quot;&gt;&lt;/a&gt;取近似值&lt;/h3&gt;&lt;p&gt;一个程序，接受一个正浮点数值，输出该数值的近似整数值，遵循四舍五入。&lt;/p&gt;
 &lt;p&gt;输入：正浮点数值，例：5.5&lt;/p&gt;
 &lt;</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ6</title>
-    <link href="http://example.com/2021/10/21/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ6/"/>
-    <id>http://example.com/2021/10/21/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ6/</id>
-    <published>2021-10-21T13:25:04.000Z</published>
-    <updated>2021-10-22T07:15:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="质数因子"><a href="#质数因子" class="headerlink" title="质数因子"></a>质数因子</h3><p>输入一个正整数，按从小到到的顺序输出它所有质因子（重复的也要列举），以空格隔开，最后一个数后面也要有空格。</p><p>质因子：能整除给定正整数的质数。</p><p>输入：一个long型整数，例：180</p><p>输出：2 2 3 3 5 </p><hr><p>思路：给定正整数num，给定最小质因子prime=2，先一直除以2，能被2整除则2是其质因子，不能被2整除了++prime即prime=3了，再一直除以3……重复，直到prime² &gt; num；最后如果不为1，则最后剩下的一个质数也是其质因子。因为要求最后一个数后面也有空格，所以在存放质因子的数组最后加个空元素。</p><p>显示数组<code>console.log(arr)</code>是<code>2,2,3,3,5</code>的数组格式，所以用<code>arr.join(&#39;,&#39;)</code>把它转成’2,2,3,3,5’字符串格式，然后用字符串的<code>replace(/,/g, &#39; &#39;)</code>把逗号换成空格。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var num = parseInt(readline());</span><br><span class="line">var arr = [];</span><br><span class="line">function computePrime(num)&#123;</span><br><span class="line">    var prime = 2;</span><br><span class="line">    var tep = num;</span><br><span class="line">    while(prime &lt; tep &amp;&amp; prime*prime &lt;= tep)&#123;</span><br><span class="line">        while(num % prime === 0)&#123;</span><br><span class="line">            arr.push(prime);</span><br><span class="line">            num = num / prime;</span><br><span class="line">        &#125;</span><br><span class="line">        ++prime;</span><br><span class="line">    &#125;</span><br><span class="line">    if(num !== 1)&#123;</span><br><span class="line">        arr.push(num);</span><br><span class="line">    &#125;</span><br><span class="line">    arr.push(&#x27;,&#x27;);</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br><span class="line">console.log(computePrime(num).join(&#x27;,&#x27;).replace(/,/g, &#x27; &#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过49.17%用JavaScript_V8提交的代码），占用内存5480KB（超过49.17%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;质数因子&quot;&gt;&lt;a href=&quot;#质数因子&quot; class=&quot;headerlink&quot; title=&quot;质数因子&quot;&gt;&lt;/a&gt;质数因子&lt;/h3&gt;&lt;p&gt;输入一个正整数，按从小到到的顺序输出它所有质因子（重复的也要列举），以空格隔开，最后一个数后面也要有空格。&lt;/p&gt;
-&lt;p&gt;质</summary>
       
     
     
