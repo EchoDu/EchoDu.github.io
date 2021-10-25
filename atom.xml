@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-25T10:42:18.000Z</updated>
+  <updated>2021-10-25T12:02:03.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ32</title>
+    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ32/"/>
+    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ32/</id>
+    <published>2021-10-25T10:44:47.000Z</published>
+    <updated>2021-10-25T12:02:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="密码截取"><a href="#密码截取" class="headerlink" title="密码截取"></a>密码截取</h3><p>对称的密码辱ABBA，ABA，A，123321等，为防止破解会在开始或结束加一些无关的字符入12ABBA等。<br>而abaaab可以看作aba，也能看作baaab的加密形式。<br>找出最长的有效密码串。</p><p>输入：一个字符串（长度不超过2500）</p><p>输出：有效密码串最大长度</p><hr><p>思路：从中散开的方法复杂度较小，要分为找到奇数长度的有效密码串和偶数长度的两种；<br>奇数长度从第二个元素开始，检查以它i为中心的字符串(i-1和i+1，i-2和i+2……)是否对称，不断把满足条件的子字符串放到存储的数组中；<br>偶数长度从第一个元素开始，检查它i和后一个元素i+1是否相等，如果相等，继续检查它的前一个i-1和后两个i+2是否相等……</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">function symmetricalStr(str)&#123;</span><br><span class="line">    var count = 0;</span><br><span class="line">    var corresArr = [];</span><br><span class="line">    if(str.length === 1)&#123;</span><br><span class="line">        count = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(str.length ===2 &amp;&amp; str[0] === str[1])&#123;</span><br><span class="line">        count = 2;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        //找出奇数长度的</span><br><span class="line">        for(let i=1;i&lt;str.length;i++)&#123;</span><br><span class="line">            var center = 1;</span><br><span class="line">            while(str[i-center] === str[i+center] &amp;&amp; center&lt;=i)&#123;</span><br><span class="line">                corresArr.push(str.substring(i-center, i+center+1));</span><br><span class="line">                ++center;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //找出偶数长度的</span><br><span class="line">        for(let i=0;i&lt;str.length;i++)&#123;</span><br><span class="line">            var clip = 0;</span><br><span class="line">            while(str[i-clip] === str[i+1+clip] &amp;&amp; clip&lt;=i)&#123;</span><br><span class="line">                corresArr.push(str.substring(i-clip, i+clip+2));</span><br><span class="line">                ++clip;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for(let j=0;j&lt;corresArr.length;j++)&#123;</span><br><span class="line">            if(corresArr[j].length &gt; count)&#123;</span><br><span class="line">                count = corresArr[j].length;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br><span class="line">console.log(symmetricalStr(line));</span><br></pre></td></tr></table></figure><p>通过：运行时间17ms（超过68.03%用JavaScript_V8提交的代码），占用内存5120KB（超过100.00%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;密码截取&quot;&gt;&lt;a href=&quot;#密码截取&quot; class=&quot;headerlink&quot; title=&quot;密码截取&quot;&gt;&lt;/a&gt;密码截取&lt;/h3&gt;&lt;p&gt;对称的密码辱ABBA，ABA，A，123321等，为防止破解会在开始或结束加一些无关的字符入12ABBA等。&lt;br&gt;而aba</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ31</title>
@@ -475,30 +499,6 @@
       
     <summary type="html">&lt;h3 id=&quot;字符个数统计&quot;&gt;&lt;a href=&quot;#字符个数统计&quot; class=&quot;headerlink&quot; title=&quot;字符个数统计&quot;&gt;&lt;/a&gt;字符个数统计&lt;/h3&gt;&lt;p&gt;一个函数，计算字符串中含有的不同字符的个数。字符在ASCII码0~127范围内。&lt;/p&gt;
 &lt;p&gt;输入：一行没</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ9</title>
-    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ9/"/>
-    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ9/</id>
-    <published>2021-10-22T10:56:54.000Z</published>
-    <updated>2021-10-22T11:38:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="提取不重复的整数"><a href="#提取不重复的整数" class="headerlink" title="提取不重复的整数"></a>提取不重复的整数</h3><p>输入一个int型整数，按从右到左的阅读顺序，返回一个不含重复数字的新的整数（保证输入的整数最后一位不是0）</p><p>输入：例：9876673</p><p>输出：37689</p><hr><p>思路：输入readline()得到的都是字符串，用字符串方法<code>split(&#39;&#39;)</code>得到数组[‘9’,’8’,’7’,’6’,’6’,’7’,’3’];<br>用数组方法<code>reverse</code>颠倒顺序，得到数组[‘3’,’7’,’6’,’6’,’7’,’8’,’9’]；<br>用<code>parseInt</code>把数组元素都转换成数字，然后用去重。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var inPut = readline();</span><br><span class="line">function abstractNum(inPut)&#123;</span><br><span class="line">    var arr = inPut.split(&#x27;&#x27;).reverse();</span><br><span class="line">    for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        arr[i] = parseInt(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    arr = [...new Set(arr)];</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br><span class="line">var arr = abstractNum(inPut);</span><br><span class="line">console.log(arr.join(&#x27;,&#x27;).replace(/,/g, &#x27;&#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间11ms（超过67.14%用JavaScript_V8提交的代码），占用内存5184KB（超过41.66%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;提取不重复的整数&quot;&gt;&lt;a href=&quot;#提取不重复的整数&quot; class=&quot;headerlink&quot; title=&quot;提取不重复的整数&quot;&gt;&lt;/a&gt;提取不重复的整数&lt;/h3&gt;&lt;p&gt;输入一个int型整数，按从右到左的阅读顺序，返回一个不含重复数字的新的整数（保证输入的整数最</summary>
       
     
     
