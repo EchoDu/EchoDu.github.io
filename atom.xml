@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-26T05:28:48.000Z</updated>
+  <updated>2021-10-26T07:19:45.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ37</title>
+    <link href="http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ37/"/>
+    <id>http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ37/</id>
+    <published>2021-10-26T05:31:09.000Z</published>
+    <updated>2021-10-26T07:19:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="统计每个月兔子的总数"><a href="#统计每个月兔子的总数" class="headerlink" title="统计每个月兔子的总数"></a>统计每个月兔子的总数</h3><p>一只兔子出生后第3个月开始，每个月都生一只兔子，生下的兔子长到第3个月也开始每个月生一只兔子，每只兔子都不死，第n个月兔子总数是多少？</p><hr><p>思路：经典的递归问题，f(1)=1,f(2)=1,f(n)=f(n-1)+f(n-2);</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(parseInt(line));</span><br><span class="line">&#125;</span><br><span class="line">function rabbit(n)&#123;</span><br><span class="line">    if(n ===1 || n === 2)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        return rabbit(n-1)+rabbit(n-2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(rabbit(arr[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间23ms（超过22.99%用JavaScript_V8提交的代码），占用内存5296KB（超过26.12%%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;统计每个月兔子的总数&quot;&gt;&lt;a href=&quot;#统计每个月兔子的总数&quot; class=&quot;headerlink&quot; title=&quot;统计每个月兔子的总数&quot;&gt;&lt;/a&gt;统计每个月兔子的总数&lt;/h3&gt;&lt;p&gt;一只兔子出生后第3个月开始，每个月都生一只兔子，生下的兔子长到第3个月也开始</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ36</title>
@@ -468,32 +492,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;求int型数据在内存中存储时1的个数&quot;&gt;&lt;a href=&quot;#求int型数据在内存中存储时1的个数&quot; class=&quot;headerlink&quot; title=&quot;求int型数据在内存中存储时1的个数&quot;&gt;&lt;/a&gt;求int型数据在内存中存储时1的个数&lt;/h3&gt;&lt;p&gt;输入一个in</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ14</title>
-    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ14/"/>
-    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ14/</id>
-    <published>2021-10-22T13:21:08.000Z</published>
-    <updated>2021-10-22T14:39:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h3><p>给定n个字符串，按字典序排列。</p><p>输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">cap</span><br><span class="line">to</span><br><span class="line">cat</span><br><span class="line">card</span><br><span class="line">two</span><br><span class="line">too</span><br><span class="line">up</span><br><span class="line">boat</span><br><span class="line">boot</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">boat</span><br><span class="line">boot</span><br><span class="line">cap</span><br><span class="line">card</span><br><span class="line">cat</span><br><span class="line">to</span><br><span class="line">too</span><br><span class="line">two</span><br><span class="line">up</span><br></pre></td></tr></table></figure><hr><p>思路：把每个单词放到数组里，用数组的<code>sort</code>方法排序，JavaScript的<code>sort</code>方法默认就是用字典序。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">var count = parseInt(readline());</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">arr.sort();</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间17ms（超过30.33%用JavaScript_V8提交的代码），占用内存6020KB（超过39.16%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符串排序&quot;&gt;&lt;a href=&quot;#字符串排序&quot; class=&quot;headerlink&quot; title=&quot;字符串排序&quot;&gt;&lt;/a&gt;字符串排序&lt;/h3&gt;&lt;p&gt;给定n个字符串，按字典序排列。&lt;/p&gt;
-&lt;p&gt;输入：&lt;/p&gt;
-&lt;figure class=&quot;highlight pl</summary>
       
     
     
