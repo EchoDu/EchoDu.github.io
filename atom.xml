@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-26T07:19:45.000Z</updated>
+  <updated>2021-10-26T07:56:51.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ38</title>
+    <link href="http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ38/"/>
+    <id>http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ38/</id>
+    <published>2021-10-26T07:26:51.000Z</published>
+    <updated>2021-10-26T07:56:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="小球落地5次"><a href="#小球落地5次" class="headerlink" title="小球落地5次"></a>小球落地5次</h3><p>一个球从任一高度自由落下，每次落地后反跳回原高度的一半，再落下……求第5次落地时，共经历多少米？第5次反弹多高？最后误差判断是小数点6位。</p><p>输入：起始高度，int型，例：1</p><p>输出：<br>2.875<br>0.03125</p><hr><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var num = parseInt(readline());</span><br><span class="line">function ballBounce(num)&#123;</span><br><span class="line">    var height = [];</span><br><span class="line">    height.push(num);</span><br><span class="line">    var total = height[0];</span><br><span class="line">    for(let i=1;i&lt;6;i++)&#123;</span><br><span class="line">        height.push(num / (2**i));</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i=1;i&lt;height.length-1;i++)&#123;</span><br><span class="line">        total += (height[i] * 2);</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(total);</span><br><span class="line">    console.log(height[height.length-1]);</span><br><span class="line">&#125;</span><br><span class="line">ballBounce(num);</span><br></pre></td></tr></table></figure><p>通过：运行时间15ms（超过25.60%用JavaScript_V8提交的代码），占用内存5256KB（超过10.97%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;小球落地5次&quot;&gt;&lt;a href=&quot;#小球落地5次&quot; class=&quot;headerlink&quot; title=&quot;小球落地5次&quot;&gt;&lt;/a&gt;小球落地5次&lt;/h3&gt;&lt;p&gt;一个球从任一高度自由落下，每次落地后反跳回原高度的一半，再落下……求第5次落地时，共经历多少米？第5次反弹多</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ37</title>
@@ -476,30 +500,6 @@
     
     
     <category term="华为机试 搁置" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95-%E6%90%81%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ15</title>
-    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ15/"/>
-    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ15/</id>
-    <published>2021-10-23T02:12:47.000Z</published>
-    <updated>2021-10-23T02:28:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="求int型数据在内存中存储时1的个数"><a href="#求int型数据在内存中存储时1的个数" class="headerlink" title="求int型数据在内存中存储时1的个数"></a>求int型数据在内存中存储时1的个数</h3><p>输入一个int型正整数，计算出该数在内存中存储时1的个数。</p><p>输入：例：5</p><p>输出：2</p><hr><p>思路：JavaScript的数字有专门的方法<code>Number.prototype.toString()</code>，用<code>num.toString(radix)</code>得到数字对象的字符串表示形式，radix指定数字到字符串的转换基数（2~36）。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var num = parseInt(readline());</span><br><span class="line">function countOne(num)&#123;</span><br><span class="line">    var str = num.toString(2);</span><br><span class="line">    var count = 0;</span><br><span class="line">    for(i in str)&#123;</span><br><span class="line">        if(parseInt(str[i]) === 1)&#123;</span><br><span class="line">            ++count;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return count;</span><br><span class="line">&#125;</span><br><span class="line">console.log(countOne(num));</span><br></pre></td></tr></table></figure><p>通过：运行时间12ms（超过44.63%用JavaScript_V8提交的代码），占用内存5152KB（超过19.86%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;求int型数据在内存中存储时1的个数&quot;&gt;&lt;a href=&quot;#求int型数据在内存中存储时1的个数&quot; class=&quot;headerlink&quot; title=&quot;求int型数据在内存中存储时1的个数&quot;&gt;&lt;/a&gt;求int型数据在内存中存储时1的个数&lt;/h3&gt;&lt;p&gt;输入一个in</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
     
   </entry>
   
