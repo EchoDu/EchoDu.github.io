@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-25T15:24:18.000Z</updated>
+  <updated>2021-10-26T05:28:48.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ36</title>
+    <link href="http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ36/"/>
+    <id>http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ36/</id>
+    <published>2021-10-26T02:16:57.000Z</published>
+    <updated>2021-10-26T05:28:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="字符串加密"><a href="#字符串加密" class="headerlink" title="字符串加密"></a>字符串加密</h3><p>数据加密技巧：选择一个单词作为密匙，如果单词中包含有重复的字母则只保留第一个，其余的丢弃;<br>剩余部分用单词表中单词不包含的字母依次填充；<br>加密：密匙中每个字母依次对应字母表的字母，用字母表的字母一一取代密匙的字母（大小写状态应保留）。</p><p>输入：<br>key例：nihao<br>要加密的字符串：ni</p><p>输出：加密后的字符串：le</p><hr><p>开始没看懂题目意思，把示例算了一遍才明白，如下：</p><p>key是nihao，则在把key去重再加字母表其他字母后结果是：</p><p>n i h a o b c d e f g j k l m p q r s t u v w x y z与普通字母表对应：</p><p>a b c d e f g h i j k l m n o p q r s t u v w x y z</p><p>需要加密的n对应上行的l，i对应上行的e，所以加密后的结果是le</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function encrypStr(key, str)&#123;</span><br><span class="line">    key = [...new Set(key.split(&#x27;&#x27;))].join(&#x27;&#x27;);</span><br><span class="line">    var aCode = &#x27;a&#x27;.charCodeAt(0);</span><br><span class="line">    var zCode = &#x27;z&#x27;.charCodeAt(0);</span><br><span class="line">    var plus = &#x27;&#x27;;</span><br><span class="line">    var result = &#x27;&#x27;;</span><br><span class="line">    for(let i=aCode;i&lt;=zCode;i++)&#123;</span><br><span class="line">        if(key.indexOf(String.fromCharCode(i)) === -1)&#123;</span><br><span class="line">            plus += String.fromCharCode(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    key += plus;</span><br><span class="line">    for(let j=0;j&lt;str.length;j++)&#123;</span><br><span class="line">        result += key[str[j].charCodeAt(0) - 97];</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i+=2)&#123;</span><br><span class="line">    encrypStr(arr[i], arr[i+1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间15ms（超过24.68%用JavaScript_V8提交的代码），占用内存5296KB（超过15.74%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;字符串加密&quot;&gt;&lt;a href=&quot;#字符串加密&quot; class=&quot;headerlink&quot; title=&quot;字符串加密&quot;&gt;&lt;/a&gt;字符串加密&lt;/h3&gt;&lt;p&gt;数据加密技巧：选择一个单词作为密匙，如果单词中包含有重复的字母则只保留第一个，其余的丢弃;&lt;br&gt;剩余部分用单词表中</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ35</title>
@@ -470,31 +494,6 @@
     <summary type="html">&lt;h3 id=&quot;字符串排序&quot;&gt;&lt;a href=&quot;#字符串排序&quot; class=&quot;headerlink&quot; title=&quot;字符串排序&quot;&gt;&lt;/a&gt;字符串排序&lt;/h3&gt;&lt;p&gt;给定n个字符串，按字典序排列。&lt;/p&gt;
 &lt;p&gt;输入：&lt;/p&gt;
 &lt;figure class=&quot;highlight pl</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ13</title>
-    <link href="http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ13/"/>
-    <id>http://example.com/2021/10/22/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ13/</id>
-    <published>2021-10-22T13:05:58.000Z</published>
-    <updated>2021-10-22T13:18:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="句子逆序"><a href="#句子逆序" class="headerlink" title="句子逆序"></a>句子逆序</h3><p>将一个英语句子以单词为单位逆序排放。单词之间用一个空格隔开，句子中除了英文字母外不包含其他字符。</p><p>输入：I am a boy</p><p>输出：boy a am I</p><hr><p>思路：用字符串的<code>split</code>将各个单词放到数组中，用数组的<code>reverse</code>方法逆序，再用数组的<code>join</code>方法将数组的元素用空格连接成一个字符串。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str = readline();</span><br><span class="line">console.log(str.split(&#x27; &#x27;).reverse().join(&#x27; &#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间11ms（超过64.97% 用JavaScript_V8提交的代码），占用内存5132KB（超过61.44%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;句子逆序&quot;&gt;&lt;a href=&quot;#句子逆序&quot; class=&quot;headerlink&quot; title=&quot;句子逆序&quot;&gt;&lt;/a&gt;句子逆序&lt;/h3&gt;&lt;p&gt;将一个英语句子以单词为单位逆序排放。单词之间用一个空格隔开，句子中除了英文字母外不包含其他字符。&lt;/p&gt;
-&lt;p&gt;输入：I a</summary>
       
     
     
