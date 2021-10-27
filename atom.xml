@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-26T11:50:02.000Z</updated>
+  <updated>2021-10-27T05:44:52.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,102 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试HJ45</title>
+    <link href="http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ45/"/>
+    <id>http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ45/</id>
+    <published>2021-10-27T03:07:32.000Z</published>
+    <updated>2021-10-27T05:44:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="名字漂亮度"><a href="#名字漂亮度" class="headerlink" title="名字漂亮度"></a>名字漂亮度</h3><p>一个名字由字母组成（字母忽略大小写），每个字母有一个各不相同的”漂亮度“，范围在1-26。求每个名字最大可能的”漂亮度“。</p><p>输入：<br>整数N<br>N个名字</p><p>输出：每个名字可能的最大漂亮度</p><hr><p>思路：就是算出名字里各个字母出现的次数，次数最多的设为漂亮度26，其次设为25……这样漂亮度就会最大。<br>方法：用一个数组存名字里的每个字母，用一个对象存每个字母的个数{字母: 个数}，每次用<code>includes()</code>检查数组里是否已经有这个字母，没有就加进数组，并且在对象中加一个键值对；已经有该字母，则把对象中相应的键的值加1；<br>有<code>Object.values(obj)</code>得到对象的值的数组，按从大到小排列，然后计算漂亮度。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function prettyDegree(names)&#123;</span><br><span class="line">    for(let k=0;k&lt;names.length;k++)&#123;</span><br><span class="line">        var degrees = 0;</span><br><span class="line">        var alphas = [];</span><br><span class="line">        var count = &#123;&#125;;</span><br><span class="line">        var strArr = names[k].split(&#x27;&#x27;);</span><br><span class="line">        for(let m=0;m&lt;strArr.length;m++)&#123;</span><br><span class="line">            if(!alphas.includes(strArr[m]))&#123;</span><br><span class="line">                alphas.push(strArr[m]);</span><br><span class="line">                count[strArr[m]] = 1;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                count[strArr[m]] += 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        count = Object.values(count).sort((a,b)=&gt;&#123;return b-a;&#125;);</span><br><span class="line">        for(let n=0;n&lt;count.length;n++)&#123;</span><br><span class="line">            degrees += (26 - n) * (count[n]);</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(degrees);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    if(/[0-9]/.test(arr[i]))&#123;</span><br><span class="line">        var names = [];</span><br><span class="line">        for(let j=1;j&lt;=parseInt(arr[i]);j++)&#123;</span><br><span class="line">            names.push(arr[i+j]);</span><br><span class="line">        &#125;</span><br><span class="line">        prettyDegree(names);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间18ms（超过42.89%用JavaScript_V8提交的代码），占用内存5972KB（超过37.66%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;名字漂亮度&quot;&gt;&lt;a href=&quot;#名字漂亮度&quot; class=&quot;headerlink&quot; title=&quot;名字漂亮度&quot;&gt;&lt;/a&gt;名字漂亮度&lt;/h3&gt;&lt;p&gt;一个名字由字母组成（字母忽略大小写），每个字母有一个各不相同的”漂亮度“，范围在1-26。求每个名字最大可能的”漂亮</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ43</title>
+    <link href="http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ43/"/>
+    <id>http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ43/</id>
+    <published>2021-10-27T02:34:54.000Z</published>
+    <updated>2021-10-27T02:50:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="迷宫问题"><a href="#迷宫问题" class="headerlink" title="迷宫问题"></a>迷宫问题</h3><p>二维数组N行M列，只含0和1，0表示可以走，1表示墙壁。求从左上角(0,0)到右下角(N-1,M-1)的路径（测试数据保证唯一解）。</p><p>输入：<br>行数N 列数M<br>第一行数据（M个）<br>……<br>第N行数据（M个）</p><p>输出：<br>(0,0)<br>(1,0)<br>…<br>(4.4)</p><hr><p>因为题目保证了迷宫只有一条，所以用DFS深度优先搜索。</p><h4 id="DFS深度优先搜索"><a href="#DFS深度优先搜索" class="headerlink" title="DFS深度优先搜索"></a>DFS深度优先搜索</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;迷宫问题&quot;&gt;&lt;a href=&quot;#迷宫问题&quot; class=&quot;headerlink&quot; title=&quot;迷宫问题&quot;&gt;&lt;/a&gt;迷宫问题&lt;/h3&gt;&lt;p&gt;二维数组N行M列，只含0和1，0表示可以走，1表示墙壁。求从左上角(0,0)到右下角(N-1,M-1)的路径（测试数据保证唯</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ42</title>
+    <link href="http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ42/"/>
+    <id>http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ42/</id>
+    <published>2021-10-26T13:33:56.000Z</published>
+    <updated>2021-10-27T02:34:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="学英语"><a href="#学英语" class="headerlink" title="学英语"></a>学英语</h3><p>将数字转成英文：<br>1.三位数字看成一个整体，后面再加一个计量单位。从右往左数，三位一单位；<br>2.每三位后计数单位：thousand，million，billion<br>3.百万以下、千以上的数：x thousand；10亿以下、百万以上的数：x billion x million x thousand；<br>4.百位和十位之间要加and，百位为0则省略。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;学英语&quot;&gt;&lt;a href=&quot;#学英语&quot; class=&quot;headerlink&quot; title=&quot;学英语&quot;&gt;&lt;/a&gt;学英语&lt;/h3&gt;&lt;p&gt;将数字转成英文：&lt;br&gt;1.三位数字看成一个整体，后面再加一个计量单位。从右往左数，三位一单位；&lt;br&gt;2.每三位后计数单位：tho</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试 搁置" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95-%E6%90%81%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ41</title>
+    <link href="http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ41/"/>
+    <id>http://example.com/2021/10/26/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ41/</id>
+    <published>2021-10-26T11:51:24.000Z</published>
+    <updated>2021-10-26T13:33:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="称砝码"><a href="#称砝码" class="headerlink" title="称砝码"></a>称砝码</h3><p>n个砝码，重量互不相等，分别为m1,m2…mn，每种重量的砝码个数分别为x1,x2…xn。求这些砝码可以称多少种不同的重量。</p><p>输入：<br>砝码数n（1-10）<br>每种砝码重量m1 m2 … mn（1-2000）<br>每种砝码数量x1 x2 … xn（1-6）</p><p>输出：可以称出的不同重量数的个数</p><hr><p>思路：搁置一下o(╥﹏╥)o</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;称砝码&quot;&gt;&lt;a href=&quot;#称砝码&quot; class=&quot;headerlink&quot; title=&quot;称砝码&quot;&gt;&lt;/a&gt;称砝码&lt;/h3&gt;&lt;p&gt;n个砝码，重量互不相等，分别为m1,m2…mn，每种重量的砝码个数分别为x1,x2…xn。求这些砝码可以称多少种不同的重量。&lt;/p&gt;</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ40</title>
@@ -393,104 +489,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;数据分类处理&quot;&gt;&lt;a href=&quot;#数据分类处理&quot; class=&quot;headerlink&quot; title=&quot;数据分类处理&quot;&gt;&lt;/a&gt;数据分类处理&lt;/h3&gt;&lt;p&gt;采集输入大数据和分类规则，通过大数据分类处理程序，将大数据分类输出。&lt;br&gt;这个题题目累赘，看了挺久才看懂，</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ23</title>
-    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ23/"/>
-    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ23/</id>
-    <published>2021-10-23T11:18:43.000Z</published>
-    <updated>2021-10-23T13:56:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="删除字符串中出现次数最少的字符"><a href="#删除字符串中出现次数最少的字符" class="headerlink" title="删除字符串中出现次数最少的字符"></a>删除字符串中出现次数最少的字符</h3><p>删除字符串中出现次数最少的字符，如果多个字符出现次数一样则都删除。</p><p>输入：字符串，只包含小写英文字母，长度≤20字节</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">abcdd</span><br><span class="line">aabcddd</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd</span><br><span class="line">aaddd</span><br></pre></td></tr></table></figure><hr><p>思路：利用对象的<code>hasOwnPropery</code>方法，把字母当作对象的键，有新的键就加入对象，已经有的键就把对应的值加1；<br>用<code>Object.values()</code>得到值（即字母出现次数）的数组，数组从小到大排序；<br>把键对应的值===排序数组第一个数值的键统一放入一个数组，这个数组里就是要删除的字母的类型。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function countStr(str)&#123;</span><br><span class="line">    var obj = &#123;&#125;;</span><br><span class="line">    var countArr;</span><br><span class="line">    var deleArr = [];</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    var strArr = str.split(&#x27;&#x27;);</span><br><span class="line">    for(let i in str)&#123;</span><br><span class="line">        if(!obj.hasOwnProperty(str[i]))&#123;</span><br><span class="line">            obj[str[i]] = 1;</span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            obj[str[i]] += 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    countArr = Object.values(obj).sort((a,b)=&gt;&#123;return a-b;&#125;);</span><br><span class="line">    if(countArr.length &gt; 1)&#123;</span><br><span class="line">        for(key in obj)&#123;</span><br><span class="line">            if(obj[key] === countArr[0])&#123;</span><br><span class="line">                deleArr.push(key);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   for(let i=0;i&lt;strArr.length;i++)&#123;</span><br><span class="line">       if(deleArr.indexOf(strArr[i]) === -1)&#123;</span><br><span class="line">          newStr += strArr[i];</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  return newStr;</span><br><span class="line">&#125;</span><br><span class="line">for(i in arr)&#123;</span><br><span class="line">    console.log(countStr(arr[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过42.07%用JavaScript_V8提交的代码），占用内存5388KB（超过14.50%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;删除字符串中出现次数最少的字符&quot;&gt;&lt;a href=&quot;#删除字符串中出现次数最少的字符&quot; class=&quot;headerlink&quot; title=&quot;删除字符串中出现次数最少的字符&quot;&gt;&lt;/a&gt;删除字符串中出现次数最少的字符&lt;/h3&gt;&lt;p&gt;删除字符串中出现次数最少的字符，如果</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ22</title>
-    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ22/"/>
-    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ22/</id>
-    <published>2021-10-23T10:33:54.000Z</published>
-    <updated>2021-10-23T11:15:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="汽水瓶"><a href="#汽水瓶" class="headerlink" title="汽水瓶"></a>汽水瓶</h3><p>3个空汽水瓶换1瓶汽水，10个空汽水瓶可以换多少瓶汽水喝？<br>5瓶：用9个空瓶换3瓶汽水→4个空瓶，用3个空瓶换1瓶汽水→2个空瓶，借一瓶汽水→3个空瓶，换1瓶汽水还给老板</p><p>输入：多行单个整数，0代表输入结束，不处理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">10</span><br><span class="line">81</span><br><span class="line">0</span><br></pre></td></tr></table></figure><p>输出：换到的汽水瓶数</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">5</span><br><span class="line">40</span><br></pre></td></tr></table></figure><hr><p>思路：设三个变量，empty表示空瓶数，leftEm表示换一次后剩下的不能被3整除的空瓶数，count表示换得的汽水瓶数，每次判断empty数量计算。<br>经过实际编程，发现在计算过程中还需要一个变量countSave保存count的值，因为count每次都要计算变化。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(parseInt(line));</span><br><span class="line">&#125;</span><br><span class="line">if(arr[arr.length-1] === 0)&#123;</span><br><span class="line">    arr.pop();</span><br><span class="line">&#125;</span><br><span class="line">function computeBottle(num)&#123;</span><br><span class="line">    var empty = num;</span><br><span class="line">    var count = 0;</span><br><span class="line">    var leftEm = 0;</span><br><span class="line">    var countSave = 0;</span><br><span class="line">    if(empty &gt; 2)&#123;</span><br><span class="line">        while(empty &gt; 2)&#123;</span><br><span class="line">            count = parseInt(empty / 3);</span><br><span class="line">            countSave += count;</span><br><span class="line">            leftEm = empty % 3;</span><br><span class="line">            empty = count + leftEm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(empty == 2)&#123;</span><br><span class="line">        countSave += 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return countSave;</span><br><span class="line">&#125;</span><br><span class="line">for(i in arr)&#123;</span><br><span class="line">    console.log(computeBottle(arr[i]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间12ms（超过42.17%用JavaScript_V8提交的代码），占用内存5180KB（超过17.65%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;汽水瓶&quot;&gt;&lt;a href=&quot;#汽水瓶&quot; class=&quot;headerlink&quot; title=&quot;汽水瓶&quot;&gt;&lt;/a&gt;汽水瓶&lt;/h3&gt;&lt;p&gt;3个空汽水瓶换1瓶汽水，10个空汽水瓶可以换多少瓶汽水喝？&lt;br&gt;5瓶：用9个空瓶换3瓶汽水→4个空瓶，用3个空瓶换1瓶汽水→2个空</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ21</title>
-    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ21/"/>
-    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ21/</id>
-    <published>2021-10-23T08:31:49.000Z</published>
-    <updated>2021-10-23T10:31:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简单密码破解"><a href="#简单密码破解" class="headerlink" title="简单密码破解"></a>简单密码破解</h3><p>把明文密码翻译成真正的密码。</p><p>输入：明文密码，长度不超过100个字符</p><p>输出：真正的密码</p><hr><p>思路：小写字母转成手机上对应的数字；大写字母转小写，然后后移一位（后移方法：先用<code>charCodeAt</code>查当前小写字母的UTF-16代码单元，+1，再用<code>fromCharCode</code>将代码单元转成对应字母）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">function crack(str)&#123;</span><br><span class="line">    var newStr = [...str];</span><br><span class="line">    for(let i=0;i&lt;str.length;i++)&#123;</span><br><span class="line">        var cur = str[i];</span><br><span class="line">        if(/[a-z]/.test(cur))&#123;</span><br><span class="line">            if(/[abc]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 2;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[def]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 3;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[ghi]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 4;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[jkl]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 5;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[mno]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 6;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[pqrs]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 7;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[tuv]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 8;</span><br><span class="line">            &#125;</span><br><span class="line">            if(/[wxyz]/.test(cur))&#123;</span><br><span class="line">                newStr[i] = 9;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(/[A-Z]/.test(cur))&#123;</span><br><span class="line">            if(cur === &#x27;Z&#x27;)&#123;</span><br><span class="line">                newStr[i] = &#x27;a&#x27;; //注意Z要换成A，否则就变成&#123;了</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                newStr[i] = String.fromCharCode(cur.toLowerCase().charCodeAt(0)+1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return newStr;</span><br><span class="line">&#125;</span><br><span class="line">var result = crack(line);</span><br><span class="line">console.log(result.join(&#x27;&#x27;));</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过28.82%用JavaScript_V8提交的代码），占用内存5340KB（超过14.21%用JavaScript_V8提交的代码</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;简单密码破解&quot;&gt;&lt;a href=&quot;#简单密码破解&quot; class=&quot;headerlink&quot; title=&quot;简单密码破解&quot;&gt;&lt;/a&gt;简单密码破解&lt;/h3&gt;&lt;p&gt;把明文密码翻译成真正的密码。&lt;/p&gt;
-&lt;p&gt;输入：明文密码，长度不超过100个字符&lt;/p&gt;
-&lt;p&gt;输出：真正</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ20</title>
-    <link href="http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ20/"/>
-    <id>http://example.com/2021/10/23/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ20/</id>
-    <published>2021-10-23T07:09:14.000Z</published>
-    <updated>2021-10-23T08:29:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="密码验证合格程序"><a href="#密码验证合格程序" class="headerlink" title="密码验证合格程序"></a>密码验证合格程序</h3><p>密码要求：<br>1.长度超过8位<br>2.大小写字母、数字、其他符号，以上四种至少三种<br>3.不能有相同的长度大于2的子串重复</p><p>输入：一组或多组长度超过2的字符串，每组一行</p><p>输出：符合要求输出OK，否则输出NG</p><hr><p>思路：长度检查简单；字符种类检查可以设个变量记录，用正则<code>test</code>检查，有一种字符变量就+1，变量≥3就合格；再检查重复字符串。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function testPassword(str)&#123;</span><br><span class="line">    var result = true;</span><br><span class="line">    var count = 0;</span><br><span class="line">    if(str.length &lt;= 8)&#123;</span><br><span class="line">        result = false;</span><br><span class="line">    &#125;</span><br><span class="line">    if(/[a-z]/.test(str))&#123;</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">    if(/[A-Z]/.test(str))&#123;</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">    if(/[0-9]/.test(str))&#123;</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">    if(/[^a-zA-Z0-9]/.test(str))&#123;</span><br><span class="line">        ++count;</span><br><span class="line">    &#125;</span><br><span class="line">    if(count &lt; 3)&#123;</span><br><span class="line">        result = false;</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i=0;i&lt;str.length-3;i++)&#123;</span><br><span class="line">        var substr = str.substring(i,i+3);</span><br><span class="line">        if(str.substring(i+1).includes(substr))&#123;</span><br><span class="line">            result = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line">for(i in arr)&#123;</span><br><span class="line">    console.log(testPassword(arr[i]) ? &#x27;OK&#x27; : &#x27;NG&#x27;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过53.38%用JavaScript_V8提交的代码），占用内存5260KB（超过34.10%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;密码验证合格程序&quot;&gt;&lt;a href=&quot;#密码验证合格程序&quot; class=&quot;headerlink&quot; title=&quot;密码验证合格程序&quot;&gt;&lt;/a&gt;密码验证合格程序&lt;/h3&gt;&lt;p&gt;密码要求：&lt;br&gt;1.长度超过8位&lt;br&gt;2.大小写字母、数字、其他符号，以上四种至少三种&lt;</summary>
       
     
     
