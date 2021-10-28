@@ -218,7 +218,8 @@
 <p>2.用哈希表：用哈希表记录查看过的数据，先把nums[0]按key=nums[0]，value=0下标放进去，然后从i=1开始，检查哈希表的值里是否有8-nums[i]，如果没有，则把key=nums[i],value=i放进哈希表；如果有，说明这两个就是所求。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var myMap = new Map();</span><br><span class="line">    myMap.set(nums[0],0);</span><br><span class="line">    for(let i=1;i&lt;len;i++)&#123;</span><br><span class="line">        let left = target - nums[i];</span><br><span class="line">        if(myMap.has(left))&#123;</span><br><span class="line">            result.push(myMap.get(left));</span><br><span class="line">            result.push(i);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            myMap.set(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>比较：<br>|——|执行用时|内存消耗|<br>|——|——-|——-|<br>|枚举  |124ms|38.5MB|<br>|哈希表|92ms|40.6MB|</p>
+<p>比较：</p>
+<p>||执行用时|内存消耗|<br>|:——:|:——-:|:——-:|<br>|枚举  |124ms|38.5MB|<br>|哈希表|92ms|40.6MB|</p>
 
         </div>
 
