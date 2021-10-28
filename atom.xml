@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-27T05:44:52.000Z</updated>
+  <updated>2021-10-28T13:29:18.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,103 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode刷题1</title>
+    <link href="http://example.com/2021/10/28/leetcode%E5%88%B7%E9%A2%981/"/>
+    <id>http://example.com/2021/10/28/leetcode%E5%88%B7%E9%A2%981/</id>
+    <published>2021-10-28T12:21:09.000Z</published>
+    <updated>2021-10-28T13:29:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><p>给定一个整数数组nums和一个整数目标值target，在数组中找出和为目标值的两个整数，返回它们的数组下标。<br>注：可以假设每种输入只会对应一个答案；数组中同一个元素在答案里不能重复出现；可以按任意顺序返回答案。</p><hr><p>思路：<br>1.暴力枚举：双层循环，也就是把第一个数跟第二个及以后所有数相加，第二个数跟第三个及以后所有数相加，直到找到和为目标值的两个数。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    for(let i=0;i&lt;len-1;i++)&#123;</span><br><span class="line">        for(let j=i+1;j&lt;len;j++)&#123;</span><br><span class="line">            if(nums[i]+nums[j] === target)&#123;</span><br><span class="line">                result.push(i);</span><br><span class="line">                result.push(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>2.用哈希表：用哈希表记录查看过的数据，先把nums[0]按key=nums[0]，value=0下标放进去，然后从i=1开始，检查哈希表的值里是否有8-nums[i]，如果没有，则把key=nums[i],value=i放进哈希表；如果有，说明这两个就是所求。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var myMap = new Map();</span><br><span class="line">    myMap.set(nums[0],0);</span><br><span class="line">    for(let i=1;i&lt;len;i++)&#123;</span><br><span class="line">        let left = target - nums[i];</span><br><span class="line">        if(myMap.has(left))&#123;</span><br><span class="line">            result.push(myMap.get(left));</span><br><span class="line">            result.push(i);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            myMap.set(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>比较：<br>|——|执行用时|内存消耗|<br>|——|——-|——-|<br>|枚举  |124ms|38.5MB|<br>|哈希表|92ms|40.6MB|</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1-两数之和&quot;&gt;&lt;a href=&quot;#1-两数之和&quot; class=&quot;headerlink&quot; title=&quot;1.两数之和&quot;&gt;&lt;/a&gt;1.两数之和&lt;/h3&gt;&lt;p&gt;给定一个整数数组nums和一个整数目标值target，在数组中找出和为目标值的两个整数，返回它们的数组下标。</summary>
+      
+    
+    
+    
+    <category term="每天leetcode刷题" scheme="http://example.com/categories/%E6%AF%8F%E5%A4%A9leetcode%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ50</title>
+    <link href="http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ50/"/>
+    <id>http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ50/</id>
+    <published>2021-10-27T07:38:25.000Z</published>
+    <updated>2021-10-27T08:09:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="四则运算"><a href="#四则运算" class="headerlink" title="四则运算"></a>四则运算</h3><p>（题目列表没有HJ49）<br>JavaScript可以直接用<code>eval()</code>执行字符串，只需要先把字符串里的’[]’和’{}’都换成’()’就行了。</p><hr><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">line = line.split(&#x27;&#x27;);</span><br><span class="line">for(let i=0;i&lt;line.length;i++)&#123;</span><br><span class="line">    if(line[i] == &#x27;[&#x27; || line[i] == &#x27;&#123;&#x27;)&#123;</span><br><span class="line">        line[i] = &#x27;(&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    if(line[i] == &#x27;]&#x27; || line[i] == &#x27;&#125;&#x27;)&#123;</span><br><span class="line">        line[i] = &#x27;)&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">line = line.join(&#x27;&#x27;);</span><br><span class="line">console.log(eval(line));</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过23.30%用JavaScript_V8提交的代码），占用内存5208KB（超过16.30%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;四则运算&quot;&gt;&lt;a href=&quot;#四则运算&quot; class=&quot;headerlink&quot; title=&quot;四则运算&quot;&gt;&lt;/a&gt;四则运算&lt;/h3&gt;&lt;p&gt;（题目列表没有HJ49）&lt;br&gt;JavaScript可以直接用&lt;code&gt;eval()&lt;/code&gt;执行字符串，只需要先把字</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ48</title>
+    <link href="http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ48/"/>
+    <id>http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ48/</id>
+    <published>2021-10-27T06:01:04.000Z</published>
+    <updated>2021-10-27T07:37:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="从单向链表中删除指定值的节点"><a href="#从单向链表中删除指定值的节点" class="headerlink" title="从单向链表中删除指定值的节点"></a>从单向链表中删除指定值的节点</h3><p>（没有HJ47，题目列表上就没有）<br>输入一个单向链表和一个节点的值，从单向链表中删除等于该值的节点，删除后如果链表中无节点则返回空指针。<br>链表的值不能重复。</p><p>输入：6 2 1 2 3 2 5 1 4 5 7 2 2<br>6：输入共六个节点<br>2：链表头节点为2<br>1 2：2后插入1即2 -&gt; 1<br>3 2：2后插入3即2 -&gt; 3 -&gt; 1<br>5 1：2 -&gt; 3 -&gt; 1 -&gt; 5<br>4 5：2 -&gt; 3 -&gt; 1 -&gt; 5 -&gt; 4<br>7 2：2 -&gt; 7 -&gt; 3 -&gt; 1 -&gt; 5 -&gt; 4<br>最后的2：要删除值为2的节点，结果：7 -&gt; 3 -&gt; 1 -&gt; 5 -&gt; 4</p><hr><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">function deleNode(str)&#123;</span><br><span class="line">    str = str.split(&#x27; &#x27;).map(ele =&gt; parseInt(ele));</span><br><span class="line">    var len = str.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var start = str[1];</span><br><span class="line">    var dele = str[len-1];</span><br><span class="line">    var nodeStr = str.splice(2, len-3);</span><br><span class="line">    var final = [];</span><br><span class="line">    result.push(start);</span><br><span class="line">    for(let i=0;i&lt;nodeStr.length-1;i+=2)&#123;</span><br><span class="line">        var index = result.indexOf(nodeStr[i+1]);</span><br><span class="line">        var nowLen = result.length;</span><br><span class="line">        if((index+1) === nowLen)&#123;</span><br><span class="line">            result.push(nodeStr[i]);</span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            for(let k=nowLen;k&gt;=index+1;k--)&#123;</span><br><span class="line">                result[k] = result[k-1];</span><br><span class="line">            &#125;</span><br><span class="line">            result[index+1] = nodeStr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i=0;i&lt;result.length;i++)&#123;</span><br><span class="line">        if(result[i] !== dele)&#123;</span><br><span class="line">            final.push(result[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(final.join(&#x27; &#x27;));</span><br><span class="line">&#125;</span><br><span class="line">deleNode(line);</span><br></pre></td></tr></table></figure><p>通过：运行时间16ms（超过41.41%用JavaScript_V8提交的代码），占用内存5784KB（超过17.25%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;从单向链表中删除指定值的节点&quot;&gt;&lt;a href=&quot;#从单向链表中删除指定值的节点&quot; class=&quot;headerlink&quot; title=&quot;从单向链表中删除指定值的节点&quot;&gt;&lt;/a&gt;从单向链表中删除指定值的节点&lt;/h3&gt;&lt;p&gt;（没有HJ47，题目列表上就没有）&lt;br&gt;输</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为机试HJ46</title>
+    <link href="http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ46/"/>
+    <id>http://example.com/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ46/</id>
+    <published>2021-10-27T05:50:38.000Z</published>
+    <updated>2021-10-27T06:00:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h3><p>输入一个字符串（长度n[1,100]）和一个整数k（大小[1,n]），截取字符串的前k个字符并输出。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function cutStr(str, num)&#123;</span><br><span class="line">    console.log(str.substring(0,num));</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length-1;i+=2)&#123;</span><br><span class="line">    cutStr(arr[i], parseInt(arr[i+1]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过34.86% 用JavaScript_V8提交的代码），占用内存5128KB（超过31.14%用JavaScript_V8提交的代码）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;截取字符串&quot;&gt;&lt;a href=&quot;#截取字符串&quot; class=&quot;headerlink&quot; title=&quot;截取字符串&quot;&gt;&lt;/a&gt;截取字符串&lt;/h3&gt;&lt;p&gt;输入一个字符串（长度n[1,100]）和一个整数k（大小[1,n]），截取字符串的前k个字符并输出。&lt;/p&gt;
+&lt;fi</summary>
+      
+    
+    
+    
+    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试HJ45</title>
@@ -391,104 +488,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;字符串加解密&quot;&gt;&lt;a href=&quot;#字符串加解密&quot; class=&quot;headerlink&quot; title=&quot;字符串加解密&quot;&gt;&lt;/a&gt;字符串加解密&lt;/h3&gt;&lt;p&gt;对输入的字符串进行加解密，并输出。&lt;br&gt;加密方法：英文字母：用后一个字母替换并变换大小写；数字：加1（9变</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ28</title>
-    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ28/"/>
-    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ28/</id>
-    <published>2021-10-25T02:48:56.000Z</published>
-    <updated>2021-10-25T05:32:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="素数伴侣"><a href="#素数伴侣" class="headerlink" title="素数伴侣"></a>素数伴侣</h3><p>定义：两个和为素数的正整数，例如2和5、6和13。从N个（N为偶数）正整数中挑出若干对组成素数伴侣，选出最佳方案即能组成素数伴侣最多的方案。</p><p>输入：<br>N<br>N个正整数</p><p>输出：最佳方案组成素数伴侣的对数</p><hr><p>思路：要先写一个判断是否素数的函数，然后再对N个正整数的和进行判断。<br>技巧：素数不是偶数，所以两个偶数相加或者两个奇数相加得到的偶数都不可能是素数，可以先把数据分为奇数和偶数两类，两个互不相交的集合的最大匹配问题，就可以用匈牙利算法解决。<br>匈牙利算法：大概概念弄懂了，先搁置。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;素数伴侣&quot;&gt;&lt;a href=&quot;#素数伴侣&quot; class=&quot;headerlink&quot; title=&quot;素数伴侣&quot;&gt;&lt;/a&gt;素数伴侣&lt;/h3&gt;&lt;p&gt;定义：两个和为素数的正整数，例如2和5、6和13。从N个（N为偶数）正整数中挑出若干对组成素数伴侣，选出最佳方案即能组成素数</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试 搁置" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95-%E6%90%81%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ27</title>
-    <link href="http://example.com/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ27/"/>
-    <id>http://example.com/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ27/</id>
-    <published>2021-10-24T10:02:06.000Z</published>
-    <updated>2021-10-24T11:52:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="查找兄弟单词"><a href="#查找兄弟单词" class="headerlink" title="查找兄弟单词"></a>查找兄弟单词</h3><p>兄弟单词：交换一个单词字母顺序，不添加、删除。修改原有字母就能生成的单词。要求和原单词不同。</p><p>输入：单词个数n，n个单词，待查找单词x，数字k</p><p>输出：n个单词里x的兄弟单词个数m，兄弟单词按字典顺序排序后第k个兄弟单词（没有第k个就不用输出）</p><hr><p>思路：分成两个问题，一是找到所有兄弟单词，二是给兄弟单词按字典顺序排序。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function siblingWord(str)&#123;</span><br><span class="line">    var strArr = str.split(&#x27; &#x27;);</span><br><span class="line">    var count = parseInt(strArr[0]);</span><br><span class="line">    var search = [];</span><br><span class="line">    var searchResult = [];</span><br><span class="line">    var posi = parseInt(strArr[strArr.length-1]);</span><br><span class="line">    var base = strArr[strArr.length-2];</span><br><span class="line">    var len = 0;</span><br><span class="line">    var check;</span><br><span class="line">    for(let i=1;i&lt;=count;i++)&#123;</span><br><span class="line">        search.push(strArr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    for(let j=0;j&lt;search.length;j++)&#123;</span><br><span class="line">        if(search[j].length === base.length &amp;&amp; search[j] !== base)&#123;</span><br><span class="line">            if(search[j].split(&#x27;&#x27;).sort().join(&#x27;&#x27;) === base.split(&#x27;&#x27;).sort().join(&#x27;&#x27;))&#123;</span><br><span class="line">                searchResult.push(search[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    searchResult.sort();</span><br><span class="line">    len = searchResult.length;</span><br><span class="line">    if(posi &lt; searchResult.length)&#123;</span><br><span class="line">        check = searchResult[posi-1];</span><br><span class="line">        console.log(len);</span><br><span class="line">        console.log(check);</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        console.log(len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">siblingWord(arr[0]);</span><br></pre></td></tr></table></figure><p>通过：运行时间15ms（超过52.82%用JavaScript_V8提交的代码），占用内存5588KB（超过67.59%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;查找兄弟单词&quot;&gt;&lt;a href=&quot;#查找兄弟单词&quot; class=&quot;headerlink&quot; title=&quot;查找兄弟单词&quot;&gt;&lt;/a&gt;查找兄弟单词&lt;/h3&gt;&lt;p&gt;兄弟单词：交换一个单词字母顺序，不添加、删除。修改原有字母就能生成的单词。要求和原单词不同。&lt;/p&gt;
-&lt;p&gt;</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ26</title>
-    <link href="http://example.com/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ26/"/>
-    <id>http://example.com/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ26/</id>
-    <published>2021-10-24T06:46:18.000Z</published>
-    <updated>2021-10-24T08:42:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h3><p>英文字母从A到Z排序，不区分大小写；同一个字母大小写都有，按输入顺序排列。</p><p>输入：A Famous Saying: Much Ado About Nothing (2012/8).</p><p>输出：A aaAAbc dFgghh: iimM nNn oooos Sttuuuy (2012/8).</p><hr><p>思路：输入的字符串用<code>split(&#39;&#39;)</code>分成数组（一个字符就是一个元素），对于每个元素，检查是否是字母，然后从97（’a’）开始，如果当前字母<code>charCodeAt(0)</code>为97，则加到排序数组中（把所有a和A找出来了）；<br>然后对于每个元素，检查是否是字母，如果当前字母<code>charCodeAt(0)</code>为98，则加到排序数组中（把所有b和B找出来了）；<br>……循环26次</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function strSort(str)&#123;</span><br><span class="line">    var charCode = &#x27;a&#x27;.charCodeAt(0);</span><br><span class="line">    var strArr = str.split(&#x27;&#x27;);</span><br><span class="line">    var sortedArr = [];</span><br><span class="line">    </span><br><span class="line">    for(let i=0;i&lt;26;i++)&#123;</span><br><span class="line">        for(let j=0;j&lt;strArr.length;j++)&#123;</span><br><span class="line">            if(/[a-z]/.test(strArr[j].toLowerCase()) &amp;&amp; strArr[j].toLowerCase().charCodeAt(0) === i+charCode)&#123;</span><br><span class="line">                sortedArr.push(strArr[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(let k=0;k&lt;strArr.length;k++)&#123;</span><br><span class="line">        if(!/[a-z]/.test(strArr[k].toLowerCase()))&#123;</span><br><span class="line">            sortedArr.splice(k,0,strArr[k]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(sortedArr.join(&#x27;&#x27;));</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    strSort(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间23ms（超过21.70%用JavaScript_V8提交的代码），占用内存6760KB（超过21.77%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符串排序&quot;&gt;&lt;a href=&quot;#字符串排序&quot; class=&quot;headerlink&quot; title=&quot;字符串排序&quot;&gt;&lt;/a&gt;字符串排序&lt;/h3&gt;&lt;p&gt;英文字母从A到Z排序，不区分大小写；同一个字母大小写都有，按输入顺序排列。&lt;/p&gt;
-&lt;p&gt;输入：A Famous S</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ25</title>
-    <link href="http://example.com/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ25/"/>
-    <id>http://example.com/2021/10/24/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ25/</id>
-    <published>2021-10-24T02:28:36.000Z</published>
-    <updated>2021-10-24T06:44:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="数据分类处理"><a href="#数据分类处理" class="headerlink" title="数据分类处理"></a>数据分类处理</h3><p>采集输入大数据和分类规则，通过大数据分类处理程序，将大数据分类输出。<br>这个题题目累赘，看了挺久才看懂，就是一个输入序列I，一个规则序列R，先把R从小到大排序、去重，然后用每个R[i]去检查I中每一个元素找出I[j]中含有R[i]的</p><p>输入：第一行I，第二行R</p><p>输出：<br>满足条件的I[j]的总数<br>满足条件的第一个R[i]<br>含R[i]的I[j]的个数<br>第一个含R[i]的I[j]的索引j<br>第一个含R[i]的I[j]的值</p><hr><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var lines = [];</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    lines.push(line);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;parseInt(lines.length/2);i++)&#123;</span><br><span class="line">    arr[i] = [lines[i*2], lines[i*2+1]];</span><br><span class="line">&#125;</span><br><span class="line">function strToNum(array)&#123;</span><br><span class="line">    for(let i=0;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] = parseInt(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function numToStr(array)&#123;</span><br><span class="line">    for(let i=0;i&lt;array.length;i++)&#123;</span><br><span class="line">        array[i] = array[i].toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function dataClassify(arr)&#123;</span><br><span class="line">    for(let i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">        var Iarr = arr[i][0].split(&#x27; &#x27;);</span><br><span class="line">        var Rarr = arr[i][1].split(&#x27; &#x27;);</span><br><span class="line">        var countArr = [];</span><br><span class="line">        var Rcount = [];</span><br><span class="line">        var result = [];</span><br><span class="line">        var finalResult = [];</span><br><span class="line">        Iarr.shift();</span><br><span class="line">        Rarr.shift();</span><br><span class="line">        strToNum(Rarr);</span><br><span class="line">        Rarr.sort((a,b)=&gt;&#123;return a-b;&#125;);</span><br><span class="line">        Rarr = [...new Set(Rarr)];</span><br><span class="line">        numToStr(Rarr);</span><br><span class="line">        for(let j=0;j&lt;Rarr.length;j++)&#123;</span><br><span class="line">            var count = 0;</span><br><span class="line">            for(let k=0;k&lt;Iarr.length;k++)&#123;</span><br><span class="line">                if(Iarr[k].includes(Rarr[j]))&#123;</span><br><span class="line">                    ++count;</span><br><span class="line">                    result.push(k);</span><br><span class="line">                    result.push(Iarr[k]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(count &gt; 0)&#123;</span><br><span class="line">                Rcount.push(Rarr[j]);</span><br><span class="line">                countArr.push(count);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var num = 0;</span><br><span class="line">        for(let j=0;j&lt;countArr.length;j++)&#123;</span><br><span class="line">            finalResult.push(Rcount[j]);</span><br><span class="line">            var cur = countArr[j];</span><br><span class="line">            finalResult.push(cur);</span><br><span class="line">            for(let k=num;k&lt;num+cur*2;k++)&#123;</span><br><span class="line">                finalResult.push(result[k]);</span><br><span class="line">            &#125;</span><br><span class="line">            num += cur * 2;</span><br><span class="line">        &#125;</span><br><span class="line">        var len = finalResult.length;</span><br><span class="line">        finalResult.unshift(len);</span><br><span class="line">        console.log(finalResult.join(&#x27; &#x27;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">dataClassify(arr);</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过61.95%用JavaScript_V8提交的代码），占用内存5264KB（超过73.00%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;数据分类处理&quot;&gt;&lt;a href=&quot;#数据分类处理&quot; class=&quot;headerlink&quot; title=&quot;数据分类处理&quot;&gt;&lt;/a&gt;数据分类处理&lt;/h3&gt;&lt;p&gt;采集输入大数据和分类规则，通过大数据分类处理程序，将大数据分类输出。&lt;br&gt;这个题题目累赘，看了挺久才看懂，</summary>
       
     
     

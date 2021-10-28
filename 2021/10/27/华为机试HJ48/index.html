@@ -9,7 +9,7 @@
     
     <title>
         
-            分类: 面试刷题 |
+            华为机试HJ48 |
         
         我的博客
     </title>
@@ -76,7 +76,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 分类
@@ -123,7 +123,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories">分类</a>
                 </li>
             
@@ -148,74 +148,117 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-container">
-        <div class="category-name">
-            <i class="fas fa-folder"></i>&nbsp;面试刷题
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">华为机试HJ48</span>
         </div>
-        <div class="category-post-list">
-            
-<div class="archive-list-container">
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/self.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Du</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-10-27 14:01:04
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2021</span>
-                <span class="archive-year-post-count">[5]</span>
-            </div>
-            <ul class="article-list">
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/10/21/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ4/"
-                        >华为机试HJ4</a>
-                        <span class="article-date">10-21</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ3/"
-                        >华为机试HJ3</a>
-                        <span class="article-date">10-20</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ2/"
-                        >华为机试HJ2</a>
-                        <span class="article-date">10-20</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/10/20/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ1/"
-                        >华为机试HJ1</a>
-                        <span class="article-date">10-20</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/10/19/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95001-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"
-                        >华为机试001_输入输出</a>
-                        <span class="article-date">10-19</span>
+                    <li>
+                        <a href="/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/">面试刷题</a>&nbsp;
                     </li>
                 
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/">华为机试</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>347 字</span>
+        </span>
+    
+    
     
 </div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="从单向链表中删除指定值的节点"><a href="#从单向链表中删除指定值的节点" class="headerlink" title="从单向链表中删除指定值的节点"></a>从单向链表中删除指定值的节点</h3><p>（没有HJ47，题目列表上就没有）<br>输入一个单向链表和一个节点的值，从单向链表中删除等于该值的节点，删除后如果链表中无节点则返回空指针。<br>链表的值不能重复。</p>
+<p>输入：6 2 1 2 3 2 5 1 4 5 7 2 2<br>6：输入共六个节点<br>2：链表头节点为2<br>1 2：2后插入1即2 -&gt; 1<br>3 2：2后插入3即2 -&gt; 3 -&gt; 1<br>5 1：2 -&gt; 3 -&gt; 1 -&gt; 5<br>4 5：2 -&gt; 3 -&gt; 1 -&gt; 5 -&gt; 4<br>7 2：2 -&gt; 7 -&gt; 3 -&gt; 1 -&gt; 5 -&gt; 4<br>最后的2：要删除值为2的节点，结果：7 -&gt; 3 -&gt; 1 -&gt; 5 -&gt; 4</p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">var line = readline();</span><br><span class="line">function deleNode(str)&#123;</span><br><span class="line">    str = str.split(&#x27; &#x27;).map(ele =&gt; parseInt(ele));</span><br><span class="line">    var len = str.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var start = str[1];</span><br><span class="line">    var dele = str[len-1];</span><br><span class="line">    var nodeStr = str.splice(2, len-3);</span><br><span class="line">    var final = [];</span><br><span class="line">    result.push(start);</span><br><span class="line">    for(let i=0;i&lt;nodeStr.length-1;i+=2)&#123;</span><br><span class="line">        var index = result.indexOf(nodeStr[i+1]);</span><br><span class="line">        var nowLen = result.length;</span><br><span class="line">        if((index+1) === nowLen)&#123;</span><br><span class="line">            result.push(nodeStr[i]);</span><br><span class="line">        &#125; else&#123;</span><br><span class="line">            for(let k=nowLen;k&gt;=index+1;k--)&#123;</span><br><span class="line">                result[k] = result[k-1];</span><br><span class="line">            &#125;</span><br><span class="line">            result[index+1] = nodeStr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i=0;i&lt;result.length;i++)&#123;</span><br><span class="line">        if(result[i] !== dele)&#123;</span><br><span class="line">            final.push(result[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(final.join(&#x27; &#x27;));</span><br><span class="line">&#125;</span><br><span class="line">deleNode(line);</span><br></pre></td></tr></table></figure>
+
+<p>通过：运行时间16ms（超过41.41%用JavaScript_V8提交的代码），占用内存5784KB（超过17.25%用JavaScript_V8提交的代码）</p>
 
         </div>
-    </div>
-    <div class="category-paginator">
-        <div class="paginator">
-    
-        <a class="prev btn"
-           href="/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/page/4/"
-        >上一页</a>
-    
 
-    
-</div>
+        
 
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ50/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">华为机试HJ50</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ46/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">华为机试HJ46</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -246,6 +289,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -291,6 +351,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-text">从单向链表中删除指定值的节点</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -356,6 +424,14 @@
 
 
 <div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
