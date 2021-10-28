@@ -219,7 +219,25 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var myMap = new Map();</span><br><span class="line">    myMap.set(nums[0],0);</span><br><span class="line">    for(let i=1;i&lt;len;i++)&#123;</span><br><span class="line">        let left = target - nums[i];</span><br><span class="line">        if(myMap.has(left))&#123;</span><br><span class="line">            result.push(myMap.get(left));</span><br><span class="line">            result.push(i);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            myMap.set(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>比较：</p>
-<p>||执行用时|内存消耗|<br>|:——:|:——-:|:——-:|<br>|枚举  |124ms|38.5MB|<br>|哈希表|92ms|40.6MB|</p>
+<table>
+<thead>
+<tr>
+<th align="center">…..</th>
+<th align="center">执行用时</th>
+<th align="center">内存消耗</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">枚举</td>
+<td align="center">124ms</td>
+<td align="center">38.5MB</td>
+</tr>
+<tr>
+<td align="center">哈希表</td>
+<td align="center">92ms</td>
+<td align="center">40.6MB</td>
+</tr>
+</tbody></table>
 
         </div>
 
