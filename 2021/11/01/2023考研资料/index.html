@@ -9,7 +9,7 @@
     
     <title>
         
-            leetcode刷题1 |
+            2023考研资料 |
         
         我的博客
     </title>
@@ -151,7 +151,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">leetcode刷题1</span>
+            <span class="title-hover-animation">2023考研资料</span>
         </div>
 
         
@@ -167,7 +167,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-10-28 20:21:09
+        <i class="fas fa-edit"></i>&nbsp;2021-11-01 13:48:36
     </span>
     
         <span class="article-categories article-meta-item">
@@ -175,7 +175,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E6%AF%8F%E5%A4%A9leetcode%E5%88%B7%E9%A2%98/">每天leetcode刷题</a>&nbsp;
+                        <a href="/categories/%E8%80%83%E7%A0%94/">考研</a>&nbsp;
                     </li>
                 
             </ul>
@@ -187,7 +187,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/leetcode/">leetcode</a>&nbsp;
+                        <a href="/tags/%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/">考研资料</a>&nbsp;
                     </li>
                 
             </ul>
@@ -197,7 +197,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>367 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>544 字</span>
         </span>
     
     
@@ -210,34 +210,13 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><p>给定一个整数数组nums和一个整数目标值target，在数组中找出和为目标值的两个整数，返回它们的数组下标。<br>注：可以假设每种输入只会对应一个答案；数组中同一个元素在答案里不能重复出现；可以按任意顺序返回答案。</p>
-<hr>
-<p>思路：<br>1.暴力枚举：双层循环，也就是把第一个数跟第二个及以后所有数相加，第二个数跟第三个及以后所有数相加，直到找到和为目标值的两个数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    for(let i=0;i&lt;len-1;i++)&#123;</span><br><span class="line">        for(let j=i+1;j&lt;len;j++)&#123;</span><br><span class="line">            if(nums[i]+nums[j] === target)&#123;</span><br><span class="line">                result.push(i);</span><br><span class="line">                result.push(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>2.用哈希表：用哈希表记录查看过的数据，先把nums[0]按key=nums[0]，value=0下标放进去，然后从i=1开始，检查哈希表的值里是否有8-nums[i]，如果没有，则把key=nums[i],value=i放进哈希表；如果有，说明这两个就是所求。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var myMap = new Map();</span><br><span class="line">    myMap.set(nums[0],0);</span><br><span class="line">    for(let i=1;i&lt;len;i++)&#123;</span><br><span class="line">        let left = target - nums[i];</span><br><span class="line">        if(myMap.has(left))&#123;</span><br><span class="line">            result.push(myMap.get(left));</span><br><span class="line">            result.push(i);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            myMap.set(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>比较：</p>
-<table>
-<thead>
-<tr>
-<th align="center">…..</th>
-<th align="center">执行用时</th>
-<th align="center">内存消耗</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">枚举</td>
-<td align="center">124ms</td>
-<td align="center">38.5MB</td>
-</tr>
-<tr>
-<td align="center">哈希表</td>
-<td align="center">92ms</td>
-<td align="center">40.6MB</td>
-</tr>
-</tbody></table>
+            <h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><h4 id="复习规划"><a href="#复习规划" class="headerlink" title="复习规划"></a>复习规划</h4><h5 id="张宇2021-10-27-2023考研数学入门备考规划"><a href="#张宇2021-10-27-2023考研数学入门备考规划" class="headerlink" title="张宇2021-10-27 2023考研数学入门备考规划"></a>张宇2021-10-27 2023考研数学入门备考规划</h5><p>1.基础阶段2021.9-2022.4：<br>（每本均为书课包）<br>《张宇考研数学基础30讲·高等数学分册》<br>《张宇考研数学基础30讲——基础300题·高等数学分册》<br>《张宇考研数学基础30讲·线性代数分册》<br>《张宇考研数学基础30讲——基础300题·线性代数分册》<br>《张宇考研数学基础30讲·概率论与数理统计分册》<br>《张宇考研数学基础30讲——基础300题·概率论与数理统计分册》<br>复习目标：掌握基础概念、定理以及性质。<br>复习重点：理解并记忆基本概念、基本理论、基本方法。</p>
+<p>2.强化阶段2022.5-2022.8：<br>（每本均为书课包）<br>《张宇高等数学18讲》<br>《张宇线性代数9讲》<br>《张宇概率论与数理统计9讲》<br>《张宇考研数学题源探析经典1000题》</p>
+<p>3.强化冲刺阶段2022.9-2022.10：<br>《张宇考研数学真题大全解》（上册）<br>《张宇考研数学真题大全解》（下册）</p>
+<p>4.冲刺阶段2022.11-2022.12：<br>《考研数学命题人终极预测8套卷》（过关版）<br>《张宇考研数学最后4套卷》（过关版）<br>《考研数学命题人终极预测8套卷》（高分版）<br>《张宇考研数学最后4套卷》（高分版）</p>
+<h3 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h3><p>沪江网校徐涛全程班已买。</p>
+<h3 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h3><p>数学全程包群内资料<br>1）2021.10-2022.2：大纲词汇，真题语法<br>2）2022.3-2022.6：02-09旧年真题打基础<br>3）2022.6-2022.9：10-17年真题精刷，逐年逐篇逐句，逐题逐个选项<br>4）2022.9-2022.11：18-20真题精刷，逐年逐篇逐句，逐题逐个选项 + 复习10-17年，梳理题型，标记易错<br>5）2022.11-2022.12：模考21+22真题，预测23考点，复习笔记，关注易错</p>
+<h3 id="专业课"><a href="#专业课" class="headerlink" title="专业课"></a>专业课</h3><p>年前：B站王道的C语言课程，数据结构，计算机网络，操作系统，（计算机组成原理）。<br>年后：查看学校录取比，决定学校，再买王道的视频。</p>
 
         </div>
 
@@ -249,13 +228,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/10/28/HTTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/"
+                           href="/2021/11/01/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B01/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">HTTP协议详解</span>
+                                <span class="post-nav-title-item">C语言笔记1</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -265,10 +244,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ50/"
+                           href="/2021/10/28/HTTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">华为机试HJ50</span>
+                                <span class="post-nav-title-item">HTTP协议详解</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -377,7 +356,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-text">1.两数之和</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6"><span class="nav-text">数学</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E4%B9%A0%E8%A7%84%E5%88%92"><span class="nav-text">复习规划</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%A0%E5%AE%872021-10-27-2023%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6%E5%85%A5%E9%97%A8%E5%A4%87%E8%80%83%E8%A7%84%E5%88%92"><span class="nav-text">张宇2021-10-27 2023考研数学入门备考规划</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BF%E6%B2%BB"><span class="nav-text">政治</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%B1%E8%AF%AD"><span class="nav-text">英语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%93%E4%B8%9A%E8%AF%BE"><span class="nav-text">专业课</span></a></li></ol>
     </div>
 </div>
         </aside>

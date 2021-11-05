@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-28T13:37:05.000Z</updated>
+  <updated>2021-11-05T06:09:50.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C语言笔记1</title>
+    <link href="http://example.com/2021/11/01/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B01/"/>
+    <id>http://example.com/2021/11/01/C%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B01/</id>
+    <published>2021-11-01T13:12:48.000Z</published>
+    <updated>2021-11-05T06:09:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>课程：中国大学MOOC 程序设计入门——C语言 翁恺</p><h3 id="第一周-程序设计与C语言"><a href="#第一周-程序设计与C语言" class="headerlink" title="第一周 程序设计与C语言"></a>第一周 程序设计与C语言</h3><h4 id="计算机与编程语言"><a href="#计算机与编程语言" class="headerlink" title="计算机与编程语言"></a>计算机与编程语言</h4><p>要让计算机做事，不能告诉他what to do，而要告诉它how to do。<br>编程语言也不是跟计算机交谈的语言。<br>程序的执行：<br>解释：借助一个程序，那个程序能试图理解你的程序，然后按你的要求执行。<br>编译：借助一个程序，就像一个翻译，把你的程序翻译成计算机真正能懂的语言——机器语言——写的程序，然后这个机器语言写的程序就能直接执行了。</p><h4 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h4><p>现代编程语言在语法上的差异很小，几乎都是C-like语言；<br>语言的能力/适用领域主要是由库和传统所决定的。</p><h4 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;Hello World!\&quot;);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="第二周-计算"><a href="#第二周-计算" class="headerlink" title="第二周 计算"></a>第二周 计算</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>&lt;类型名称&gt;&lt;变量名称&gt;<br>变量需要一个名字，变量的名字是一种标识符。<br>标识符规则：字母、数字、下划线组成，不能以数字开头。C语言关键字不能作标识符。<br>C语言是一种有类型的语言，所有变量在使用之前必须定义或生命，必须有确定的数据类型表示变量中可以存放什么样的数据，程序运行过程中不能改变变量的类型。<br>C语言没有强制要求所有变量都在定义的地方初始化，但是所有变量在第一次被使用之前应该被赋值一次。<br>常量：固定不变的数，用const定义。</p><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>double双精度浮点数，float浮点数</p><h4 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h4><p>运算符优先级：单目运算符(+ -) &gt; 乘(*)除(/) &gt; 加(+)减(-) &gt; 赋值(=)<br>单目和赋值自右向左，其他自左向右。<br>嵌入式赋值×<br>复合赋值+= -= *= /=<br>递增++ 递减–<br>a++的值是a加1以前的值，++a是a加1以后的值。</p><h4 id="在线评判系统"><a href="#在线评判系统" class="headerlink" title="在线评判系统"></a>在线评判系统</h4><h3 id="第三周-判断与循环"><a href="#第三周-判断与循环" class="headerlink" title="第三周 判断与循环"></a>第三周 判断与循环</h3><h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><p>条件判断if<br>赋值运算&lt;所有的关系运算符优先级&lt;算术运算</p><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>while循环体内要有改变条件的机会<br>for循环</p><p>有固定次数，用for；必须执行一次，用do-while；其他情况用while。</p><h3 id="第四周-进一步的判断与循环"><a href="#第四周-进一步的判断与循环" class="headerlink" title="第四周 进一步的判断与循环"></a>第四周 进一步的判断与循环</h3><h4 id="逻辑类型和运算"><a href="#逻辑类型和运算" class="headerlink" title="逻辑类型和运算"></a>逻辑类型和运算</h4><p><code>#include &lt;stdbool.h&gt;</code> 之后就可以使用bool和true、false<br>逻辑运算：或||，与&amp;&amp;，非!<br>条件运算符? 优先级只比赋值运算符高，比其他运算符都低。</p><h4 id="级联和嵌套的判断"><a href="#级联和嵌套的判断" class="headerlink" title="级联和嵌套的判断"></a>级联和嵌套的判断</h4><p>如果不加{}，else会和最近的if配套。</p><h4 id="多路分支"><a href="#多路分支" class="headerlink" title="多路分支"></a>多路分支</h4><p>多路分支switch-case</p><h4 id="循环的例子"><a href="#循环的例子" class="headerlink" title="循环的例子"></a>循环的例子</h4><h4 id="判断和循环常见的错误"><a href="#判断和循环常见的错误" class="headerlink" title="判断和循环常见的错误"></a>判断和循环常见的错误</h4><p>忘了大括号；if后面写了分号；错误使用=和==；</p><h3 id="第五周-循环控制"><a href="#第五周-循环控制" class="headerlink" title="第五周 循环控制"></a>第五周 循环控制</h3><h4 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h4><p>break结束循环；continue结束本轮循环，后面的还要继续。</p><h4 id="多重循环"><a href="#多重循环" class="headerlink" title="多重循环"></a>多重循环</h4><p>跳出多重循环：1.设置flag变量；2.用goto语句</p><h4 id="循环应用"><a href="#循环应用" class="headerlink" title="循环应用"></a>循环应用</h4><p>求两个数的最大公约数：辗转相除法</p><h3 id="第六周-数组与函数"><a href="#第六周-数组与函数" class="headerlink" title="第六周 数组与函数"></a>第六周 数组与函数</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>&lt;类型&gt; 变量名称[元素数量] Eg: int grades[100]<br>1.所有元素具有相同的数据类型；<br>2.一旦创建，不能改变大小；<br>3.元素在内存中连续依次排列</p><h4 id="函数的定义与使用"><a href="#函数的定义与使用" class="headerlink" title="函数的定义与使用"></a>函数的定义与使用</h4><p>函数：一块代码，接受零个或多个参数，做一件事情，并返回零个或一个值。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回类型 函数名(参数表)</span><br><span class="line">&#123;</span><br><span class="line">函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>return停止函数的执行，并返回一个值。<br>函数原型：函数头+;</p><h4 id="函数的参数和变量"><a href="#函数的参数和变量" class="headerlink" title="函数的参数和变量"></a>函数的参数和变量</h4><p>C语言调用函数时，永远只能传值给函数。<br>每个函数有自己的变量空间，参数也位于这个独立的空间中，和其他函数没有关系。<br>函数参数列表中的参数叫“形式参数”，调用函数时给的值叫“实际参数”。<br>函数每次运行，就产生一个独立的变量空间，在这个空间的变量，是函数的这次运行独有的，称作本地变量；定义在函数内部的变量就是本地变量；参数也是本地变量。</p><h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;课程：中国大学MOOC 程序设计入门——C语言 翁恺&lt;/p&gt;
+&lt;h3 id=&quot;第一周-程序设计与C语言&quot;&gt;&lt;a href=&quot;#第一周-程序设计与C语言&quot; class=&quot;headerlink&quot; title=&quot;第一周 程序设计与C语言&quot;&gt;&lt;/a&gt;第一周 程序设计与C语言&lt;/h3</summary>
+      
+    
+    
+    
+    <category term="考研专业课预备" scheme="http://example.com/categories/%E8%80%83%E7%A0%94%E4%B8%93%E4%B8%9A%E8%AF%BE%E9%A2%84%E5%A4%87/"/>
+    
+    
+    <category term="C语言" scheme="http://example.com/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023考研资料</title>
+    <link href="http://example.com/2021/11/01/2023%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/"/>
+    <id>http://example.com/2021/11/01/2023%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/</id>
+    <published>2021-11-01T05:48:36.000Z</published>
+    <updated>2021-11-05T06:11:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><h4 id="复习规划"><a href="#复习规划" class="headerlink" title="复习规划"></a>复习规划</h4><h5 id="张宇2021-10-27-2023考研数学入门备考规划"><a href="#张宇2021-10-27-2023考研数学入门备考规划" class="headerlink" title="张宇2021-10-27 2023考研数学入门备考规划"></a>张宇2021-10-27 2023考研数学入门备考规划</h5><p>1.基础阶段2021.9-2022.4：<br>（每本均为书课包）<br>《张宇考研数学基础30讲·高等数学分册》<br>《张宇考研数学基础30讲——基础300题·高等数学分册》<br>《张宇考研数学基础30讲·线性代数分册》<br>《张宇考研数学基础30讲——基础300题·线性代数分册》<br>《张宇考研数学基础30讲·概率论与数理统计分册》<br>《张宇考研数学基础30讲——基础300题·概率论与数理统计分册》<br>复习目标：掌握基础概念、定理以及性质。<br>复习重点：理解并记忆基本概念、基本理论、基本方法。</p><p>2.强化阶段2022.5-2022.8：<br>（每本均为书课包）<br>《张宇高等数学18讲》<br>《张宇线性代数9讲》<br>《张宇概率论与数理统计9讲》<br>《张宇考研数学题源探析经典1000题》</p><p>3.强化冲刺阶段2022.9-2022.10：<br>《张宇考研数学真题大全解》（上册）<br>《张宇考研数学真题大全解》（下册）</p><p>4.冲刺阶段2022.11-2022.12：<br>《考研数学命题人终极预测8套卷》（过关版）<br>《张宇考研数学最后4套卷》（过关版）<br>《考研数学命题人终极预测8套卷》（高分版）<br>《张宇考研数学最后4套卷》（高分版）</p><h3 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h3><p>沪江网校徐涛全程班已买。</p><h3 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h3><p>数学全程包群内资料<br>1）2021.10-2022.2：大纲词汇，真题语法<br>2）2022.3-2022.6：02-09旧年真题打基础<br>3）2022.6-2022.9：10-17年真题精刷，逐年逐篇逐句，逐题逐个选项<br>4）2022.9-2022.11：18-20真题精刷，逐年逐篇逐句，逐题逐个选项 + 复习10-17年，梳理题型，标记易错<br>5）2022.11-2022.12：模考21+22真题，预测23考点，复习笔记，关注易错</p><h3 id="专业课"><a href="#专业课" class="headerlink" title="专业课"></a>专业课</h3><p>年前：B站王道的C语言课程，数据结构，计算机网络，操作系统，（计算机组成原理）。<br>年后：查看学校录取比，决定学校，再买王道的视频。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;数学&quot;&gt;&lt;a href=&quot;#数学&quot; class=&quot;headerlink&quot; title=&quot;数学&quot;&gt;&lt;/a&gt;数学&lt;/h3&gt;&lt;h4 id=&quot;复习规划&quot;&gt;&lt;a href=&quot;#复习规划&quot; class=&quot;headerlink&quot; title=&quot;复习规划&quot;&gt;&lt;/a&gt;复习规划&lt;/h</summary>
+      
+    
+    
+    
+    <category term="考研" scheme="http://example.com/categories/%E8%80%83%E7%A0%94/"/>
+    
+    
+    <category term="考研资料" scheme="http://example.com/tags/%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP协议详解</title>
+    <link href="http://example.com/2021/10/28/HTTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://example.com/2021/10/28/HTTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/</id>
+    <published>2021-10-28T14:02:43.000Z</published>
+    <updated>2021-10-29T08:12:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>视频地址：<br>[<a class="link"   href="https://www.bilibili.com/video/BV1js411g7Fw]" >https://www.bilibili.com/video/BV1js411g7Fw]<i class="fas fa-external-link-alt"></i></a></p><h4 id="HTTP协议概念及工作流程"><a href="#HTTP协议概念及工作流程" class="headerlink" title="HTTP协议概念及工作流程"></a>HTTP协议概念及工作流程</h4><p>1.什么是协议：双方或多方都遵从的一个规范。</p><p>2.HTTP协议工作流程：<br>客户端向服务器建立连接，发送请求（连接：网络上的虚拟电路）<br>↓<br>服务器沿着连接返回相应信息<br>↓<br>客户端收到响应（如：HTML代码，解析出文字、图片等）<br>↓<br>客户端与服务器断开连接</p><p>3.HTTP请求信息和响应信息的格式：<br>请求信息：<br>(1)请求行：请求方法(GET POST PUT DELETE…) 请求路径 所用协议<br>(2)请求头信息<br>(3)空行：区分头信息和主体信息(可能有可能没有)；即使没有主体信息，空行也必须有<br>(4)请求主体信息</p><p>响应信息：<br>(1)响应行：协议版本 状态码 状态文字ß<br>(2)响应头信息：<br>key：value<br>key:value<br>…<br>content-length:接下来主体的长度<br>(3)空行<br>(4)响应主体信息</p><h4 id="HTTP协议之方法与状态码"><a href="#HTTP协议之方法与状态码" class="headerlink" title="HTTP协议之方法与状态码"></a>HTTP协议之方法与状态码</h4><p>1.响应方法：<br>HEAD：和GET基本一致，只返回内容（比如只是确认一张照片是否正常存在，不需要返回内容，就可以用HEAD）<br>TRACE：用了代理上网，想看代理是否有修改自己的HTTP请求，可以用TRACE测试。<br>OPTIONS：返回服务器可用的请求方法。</p><p>2.状态码：反应服务器响应情况。<br>|状态码|定义|说明|<br>|:—–:|:—:|:—-:|<br>|1XX|信息|接收到请求，继续处理|<br>|2XX|成功|操作成功收到、理解和接受|<br>|3XX|重定向|为了完成请求，必须采取进一步措施|<br>|4XX|客户端错误|请求的语法有错误或不能完全被满足|<br>|5XX|服务端错误|服务器无法完成明显有效的请求|</p><p>200 服务器成功返回网页<br>301/2 永久/临时重定向<br>304 Not Modified 未修改<br>404 请求的网页不存在<br>503 服务器暂时不可用<br>500 服务器内部错误</p><h4 id="socket编程发送GET请求"><a href="#socket编程发送GET请求" class="headerlink" title="socket编程发送GET请求"></a>socket编程发送GET请求</h4><h4 id="socket编程批量发帖"><a href="#socket编程批量发帖" class="headerlink" title="socket编程批量发帖"></a>socket编程批量发帖</h4><h4 id="http协议模拟登陆发帖"><a href="#http协议模拟登陆发帖" class="headerlink" title="http协议模拟登陆发帖"></a>http协议模拟登陆发帖</h4><h4 id="referer头与防盗链"><a href="#referer头与防盗链" class="headerlink" title="referer头与防盗链"></a>referer头与防盗链</h4><h4 id="http缓存详解"><a href="#http缓存详解" class="headerlink" title="http缓存详解"></a>http缓存详解</h4><p>1.网页中的图片：第一次请求时是200 OK，第二次请求时是304 Not Modified<br>解释：网络上有一些缓存服务器，浏览器自身也有缓存功能。第一次正常下载图片返回200，第二次访问该图片，去服务器校验图片的”签名“ETag，如果图片没有变化，直接使用缓存中的图片，这样减轻了服务器负担。</p><p>抓包观察（第二次请求图片时）：<br> 响应头中：ETag和Last-Modified<br> 请求头中：If-Modified-Since和If-None-Match</p><h4 id="http内容压缩"><a href="#http内容压缩" class="headerlink" title="http内容压缩"></a>http内容压缩</h4><h4 id="comet反向ajax"><a href="#comet反向ajax" class="headerlink" title="comet反向ajax"></a>comet反向ajax</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;视频地址：&lt;br&gt;[&lt;a class=&quot;link&quot;   href=&quot;https://www.bilibili.com/video/BV1js411g7Fw]&quot; &gt;https://www.bilibili.com/video/BV1js411g7Fw]&lt;i class=&quot;fa</summary>
+      
+    
+    
+    
+    <category term="HTTP协议" scheme="http://example.com/categories/HTTP%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+    <category term="视频课程笔记" scheme="http://example.com/tags/%E8%A7%86%E9%A2%91%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode刷题1</title>
@@ -415,79 +488,6 @@
       
       
     <summary type="html">&lt;h3 id=&quot;密码截取&quot;&gt;&lt;a href=&quot;#密码截取&quot; class=&quot;headerlink&quot; title=&quot;密码截取&quot;&gt;&lt;/a&gt;密码截取&lt;/h3&gt;&lt;p&gt;对称的密码辱ABBA，ABA，A，123321等，为防止破解会在开始或结束加一些无关的字符入12ABBA等。&lt;br&gt;而aba</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ31</title>
-    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ31/"/>
-    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ31/</id>
-    <published>2021-10-25T08:21:52.000Z</published>
-    <updated>2021-10-25T10:42:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="单词倒排"><a href="#单词倒排" class="headerlink" title="单词倒排"></a>单词倒排</h3><p>非26个大/小写英文字母的字符均视为单词间隔符；倒排后相邻单词间只能由一个空格作为间隔符；每个单词最长20个字母。</p><p>输入：$bo*y gi!r#l</p><p>输出：1 r gi y bo</p><hr><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function reverseWords(str)&#123;</span><br><span class="line">    var array = str.split(&#x27;&#x27;);</span><br><span class="line">    for(let j=0;j&lt;array.length;j++)&#123;</span><br><span class="line">        if(/[a-zA-Z]/g.test(array[j]) === false)&#123;</span><br><span class="line">            array[j] = &#x27; &#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    array = array.join(&#x27;&#x27;).split(&#x27; &#x27;).reverse();</span><br><span class="line">    console.log(array.join(&#x27; &#x27;));</span><br><span class="line">&#125;</span><br><span class="line">reverseWords(arr[0]);</span><br></pre></td></tr></table></figure><p>通过：运行时间14ms（超过32.50%用JavaScript_V8提交的代码），占用内存5316KB（超过20.92%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;单词倒排&quot;&gt;&lt;a href=&quot;#单词倒排&quot; class=&quot;headerlink&quot; title=&quot;单词倒排&quot;&gt;&lt;/a&gt;单词倒排&lt;/h3&gt;&lt;p&gt;非26个大/小写英文字母的字符均视为单词间隔符；倒排后相邻单词间只能由一个空格作为间隔符；每个单词最长20个字母。&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ30</title>
-    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ30/"/>
-    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ30/</id>
-    <published>2021-10-25T07:06:06.000Z</published>
-    <updated>2021-10-25T08:19:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串合并处理"><a href="#字符串合并处理" class="headerlink" title="字符串合并处理"></a>字符串合并处理</h3><p>第一步：将输入的两个字符串str1和str2前后合并；<br>第二步：合并后的字符串排序：下标（位置，从1开始）为奇数、偶数的字符分别从小到大排序，排序后仍需保持原来的奇偶性；<br>第三步：每个字符进行转换操作：字符对应的十六进制（a<del>f对应10</del>15，大写一样）→用二进制表示并倒序</p><p>思路正确，题目有些没说清的地方，搁置以后调试。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符串合并处理&quot;&gt;&lt;a href=&quot;#字符串合并处理&quot; class=&quot;headerlink&quot; title=&quot;字符串合并处理&quot;&gt;&lt;/a&gt;字符串合并处理&lt;/h3&gt;&lt;p&gt;第一步：将输入的两个字符串str1和str2前后合并；&lt;br&gt;第二步：合并后的字符串排序：下标（位置</summary>
-      
-    
-    
-    
-    <category term="面试刷题" scheme="http://example.com/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
-    
-    
-    <category term="华为机试 搁置" scheme="http://example.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95-%E6%90%81%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>华为机试HJ29</title>
-    <link href="http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ29/"/>
-    <id>http://example.com/2021/10/25/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ29/</id>
-    <published>2021-10-25T05:35:51.000Z</published>
-    <updated>2021-10-25T06:57:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串加解密"><a href="#字符串加解密" class="headerlink" title="字符串加解密"></a>字符串加解密</h3><p>对输入的字符串进行加解密，并输出。<br>加密方法：英文字母：用后一个字母替换并变换大小写；数字：加1（9变0）；其他字符不做变化。<br>解密方法：加密方法的逆过程，即：英文字母：变换大小写，用前一个字母替换；数字：减1（0变9）。</p><p>输入：<br>一串要加密的密码<br>一串要解密的密码</p><p>输出：<br>加密后的密码<br>解密后的密码</p><hr><p>思路：用正则分别检查是否是小写字母、大写字母和数字，变成前后字母可以先用<code>charCodeAt(0)</code>查当前字母编码，然后-1或+1，再用<code>String.fromCharCode()</code>转成前一个或后一个字母，再变大小写，用<code>toLowerCase()</code>或<code>toUpperCase</code>。<br>注意：加密要对’z’、’Z’和9特别检查，解密要对’a’、’A’和0特别检查。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">var line;</span><br><span class="line">var arr = [];</span><br><span class="line">while(line = readline())&#123;</span><br><span class="line">    arr.push(line);</span><br><span class="line">&#125;</span><br><span class="line">function encryp(str)&#123;</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    for(let j=0;j&lt;str.length;++j)&#123;</span><br><span class="line">        if(/[a-z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;z&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;A&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) + 1).toUpperCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[A-Z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;Z&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;a&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) + 1).toLowerCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[0-9]/.test(str[j]))&#123;</span><br><span class="line">            if(parseInt(str[j]) === 9)&#123;</span><br><span class="line">                newStr += 0;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += (parseInt(str[j]) + 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            newStr += str[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newStr);</span><br><span class="line">&#125;</span><br><span class="line">function decryp(str)&#123;</span><br><span class="line">    var newStr = &#x27;&#x27;;</span><br><span class="line">    for(let j=0;j&lt;str.length;j++)&#123;</span><br><span class="line">        if(/[a-z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;a&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;Z&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) - 1).toUpperCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[A-Z]/.test(str[j]))&#123;</span><br><span class="line">            if(str[j] === &#x27;A&#x27;)&#123;</span><br><span class="line">                newStr += &#x27;z&#x27;;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += String.fromCharCode(str[j].charCodeAt(0) - 1).toLowerCase();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(/[0-9]/.test(str[j]))&#123;</span><br><span class="line">            if(parseInt(str[j]) === 0)&#123;</span><br><span class="line">                newStr += 9;</span><br><span class="line">            &#125; else&#123;</span><br><span class="line">                newStr += (parseInt(str[j]) - 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            newStr += str[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(newStr);</span><br><span class="line">&#125;</span><br><span class="line">for(let i=0;i&lt;arr.length;++i)&#123;</span><br><span class="line">    if(i%2)&#123;</span><br><span class="line">        decryp(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        encryp(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过：运行时间13ms（超过40.21%用JavaScript_V8提交的代码），占用内存5216KB（超过35.14%用JavaScript_V8提交的代码）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;字符串加解密&quot;&gt;&lt;a href=&quot;#字符串加解密&quot; class=&quot;headerlink&quot; title=&quot;字符串加解密&quot;&gt;&lt;/a&gt;字符串加解密&lt;/h3&gt;&lt;p&gt;对输入的字符串进行加解密，并输出。&lt;br&gt;加密方法：英文字母：用后一个字母替换并变换大小写；数字：加1（9变</summary>
       
     
     

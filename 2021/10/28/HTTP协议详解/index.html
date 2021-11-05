@@ -9,7 +9,7 @@
     
     <title>
         
-            leetcode刷题1 |
+            HTTP协议详解 |
         
         我的博客
     </title>
@@ -151,7 +151,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">leetcode刷题1</span>
+            <span class="title-hover-animation">HTTP协议详解</span>
         </div>
 
         
@@ -167,7 +167,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-10-28 20:21:09
+        <i class="fas fa-edit"></i>&nbsp;2021-10-28 22:02:43
     </span>
     
         <span class="article-categories article-meta-item">
@@ -175,7 +175,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E6%AF%8F%E5%A4%A9leetcode%E5%88%B7%E9%A2%98/">每天leetcode刷题</a>&nbsp;
+                        <a href="/categories/HTTP%E5%8D%8F%E8%AE%AE/">HTTP协议</a>&nbsp;
                     </li>
                 
             </ul>
@@ -187,7 +187,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/leetcode/">leetcode</a>&nbsp;
+                        <a href="/tags/%E8%A7%86%E9%A2%91%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">视频课程笔记</a>&nbsp;
                     </li>
                 
             </ul>
@@ -197,7 +197,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>367 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>675 字</span>
         </span>
     
     
@@ -210,35 +210,17 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><p>给定一个整数数组nums和一个整数目标值target，在数组中找出和为目标值的两个整数，返回它们的数组下标。<br>注：可以假设每种输入只会对应一个答案；数组中同一个元素在答案里不能重复出现；可以按任意顺序返回答案。</p>
-<hr>
-<p>思路：<br>1.暴力枚举：双层循环，也就是把第一个数跟第二个及以后所有数相加，第二个数跟第三个及以后所有数相加，直到找到和为目标值的两个数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    for(let i=0;i&lt;len-1;i++)&#123;</span><br><span class="line">        for(let j=i+1;j&lt;len;j++)&#123;</span><br><span class="line">            if(nums[i]+nums[j] === target)&#123;</span><br><span class="line">                result.push(i);</span><br><span class="line">                result.push(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>2.用哈希表：用哈希表记录查看过的数据，先把nums[0]按key=nums[0]，value=0下标放进去，然后从i=1开始，检查哈希表的值里是否有8-nums[i]，如果没有，则把key=nums[i],value=i放进哈希表；如果有，说明这两个就是所求。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var twoSum = function(nums, target) &#123;</span><br><span class="line">    var len = nums.length;</span><br><span class="line">    var result = [];</span><br><span class="line">    var myMap = new Map();</span><br><span class="line">    myMap.set(nums[0],0);</span><br><span class="line">    for(let i=1;i&lt;len;i++)&#123;</span><br><span class="line">        let left = target - nums[i];</span><br><span class="line">        if(myMap.has(left))&#123;</span><br><span class="line">            result.push(myMap.get(left));</span><br><span class="line">            result.push(i);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            myMap.set(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>比较：</p>
-<table>
-<thead>
-<tr>
-<th align="center">…..</th>
-<th align="center">执行用时</th>
-<th align="center">内存消耗</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">枚举</td>
-<td align="center">124ms</td>
-<td align="center">38.5MB</td>
-</tr>
-<tr>
-<td align="center">哈希表</td>
-<td align="center">92ms</td>
-<td align="center">40.6MB</td>
-</tr>
-</tbody></table>
-
+            <p>视频地址：<br>[<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1js411g7Fw]" >https://www.bilibili.com/video/BV1js411g7Fw]<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="HTTP协议概念及工作流程"><a href="#HTTP协议概念及工作流程" class="headerlink" title="HTTP协议概念及工作流程"></a>HTTP协议概念及工作流程</h4><p>1.什么是协议：双方或多方都遵从的一个规范。</p>
+<p>2.HTTP协议工作流程：<br>客户端向服务器建立连接，发送请求（连接：网络上的虚拟电路）<br>↓<br>服务器沿着连接返回相应信息<br>↓<br>客户端收到响应（如：HTML代码，解析出文字、图片等）<br>↓<br>客户端与服务器断开连接</p>
+<p>3.HTTP请求信息和响应信息的格式：<br>请求信息：<br>(1)请求行：请求方法(GET POST PUT DELETE…) 请求路径 所用协议<br>(2)请求头信息<br>(3)空行：区分头信息和主体信息(可能有可能没有)；即使没有主体信息，空行也必须有<br>(4)请求主体信息</p>
+<p>响应信息：<br>(1)响应行：协议版本 状态码 状态文字ß<br>(2)响应头信息：<br>key：value<br>key:value<br>…<br>content-length:接下来主体的长度<br>(3)空行<br>(4)响应主体信息</p>
+<h4 id="HTTP协议之方法与状态码"><a href="#HTTP协议之方法与状态码" class="headerlink" title="HTTP协议之方法与状态码"></a>HTTP协议之方法与状态码</h4><p>1.响应方法：<br>HEAD：和GET基本一致，只返回内容（比如只是确认一张照片是否正常存在，不需要返回内容，就可以用HEAD）<br>TRACE：用了代理上网，想看代理是否有修改自己的HTTP请求，可以用TRACE测试。<br>OPTIONS：返回服务器可用的请求方法。</p>
+<p>2.状态码：反应服务器响应情况。<br>|状态码|定义|说明|<br>|:—–:|:—:|:—-:|<br>|1XX|信息|接收到请求，继续处理|<br>|2XX|成功|操作成功收到、理解和接受|<br>|3XX|重定向|为了完成请求，必须采取进一步措施|<br>|4XX|客户端错误|请求的语法有错误或不能完全被满足|<br>|5XX|服务端错误|服务器无法完成明显有效的请求|</p>
+<p>200 服务器成功返回网页<br>301/2 永久/临时重定向<br>304 Not Modified 未修改<br>404 请求的网页不存在<br>503 服务器暂时不可用<br>500 服务器内部错误</p>
+<h4 id="socket编程发送GET请求"><a href="#socket编程发送GET请求" class="headerlink" title="socket编程发送GET请求"></a>socket编程发送GET请求</h4><h4 id="socket编程批量发帖"><a href="#socket编程批量发帖" class="headerlink" title="socket编程批量发帖"></a>socket编程批量发帖</h4><h4 id="http协议模拟登陆发帖"><a href="#http协议模拟登陆发帖" class="headerlink" title="http协议模拟登陆发帖"></a>http协议模拟登陆发帖</h4><h4 id="referer头与防盗链"><a href="#referer头与防盗链" class="headerlink" title="referer头与防盗链"></a>referer头与防盗链</h4><h4 id="http缓存详解"><a href="#http缓存详解" class="headerlink" title="http缓存详解"></a>http缓存详解</h4><p>1.网页中的图片：第一次请求时是200 OK，第二次请求时是304 Not Modified<br>解释：网络上有一些缓存服务器，浏览器自身也有缓存功能。第一次正常下载图片返回200，第二次访问该图片，去服务器校验图片的”签名“ETag，如果图片没有变化，直接使用缓存中的图片，这样减轻了服务器负担。</p>
+<p>抓包观察（第二次请求图片时）：<br> 响应头中：ETag和Last-Modified<br> 请求头中：If-Modified-Since和If-None-Match</p>
+<h4 id="http内容压缩"><a href="#http内容压缩" class="headerlink" title="http内容压缩"></a>http内容压缩</h4><h4 id="comet反向ajax"><a href="#comet反向ajax" class="headerlink" title="comet反向ajax"></a>comet反向ajax</h4>
         </div>
 
         
@@ -249,13 +231,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/10/28/HTTP%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/"
+                           href="/2021/11/01/2023%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">HTTP协议详解</span>
+                                <span class="post-nav-title-item">2023考研资料</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -265,10 +247,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/10/27/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95HJ50/"
+                           href="/2021/10/28/leetcode%E5%88%B7%E9%A2%981/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">华为机试HJ50</span>
+                                <span class="post-nav-title-item">leetcode刷题1</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -377,7 +359,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-text">1.两数之和</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E6%A6%82%E5%BF%B5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-text">HTTP协议概念及工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E4%B9%8B%E6%96%B9%E6%B3%95%E4%B8%8E%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">HTTP协议之方法与状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket%E7%BC%96%E7%A8%8B%E5%8F%91%E9%80%81GET%E8%AF%B7%E6%B1%82"><span class="nav-text">socket编程发送GET请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket%E7%BC%96%E7%A8%8B%E6%89%B9%E9%87%8F%E5%8F%91%E5%B8%96"><span class="nav-text">socket编程批量发帖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http%E5%8D%8F%E8%AE%AE%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86%E5%8F%91%E5%B8%96"><span class="nav-text">http协议模拟登陆发帖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#referer%E5%A4%B4%E4%B8%8E%E9%98%B2%E7%9B%97%E9%93%BE"><span class="nav-text">referer头与防盗链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http%E7%BC%93%E5%AD%98%E8%AF%A6%E8%A7%A3"><span class="nav-text">http缓存详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http%E5%86%85%E5%AE%B9%E5%8E%8B%E7%BC%A9"><span class="nav-text">http内容压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#comet%E5%8F%8D%E5%90%91ajax"><span class="nav-text">comet反向ajax</span></a></li></ol>
     </div>
 </div>
         </aside>
